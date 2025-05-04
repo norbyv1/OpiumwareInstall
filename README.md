@@ -1,2 +1,2 @@
-# IonicResources
-Module resources for Ionic 
+# PolarisResources
+Module resources for Polaris Interface
