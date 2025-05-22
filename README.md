@@ -1,2 +1,2 @@
-# PolarisResources
-Module resources for Polaris Interface
+# Opiumware Resources
+Module resources for Opiumware
