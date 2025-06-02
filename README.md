@@ -1,2 +1,2 @@
-# Opiumware Resources
-Module resources for Opiumware
+# Opiumware Installer
+yes
