@@ -1,2 +1,2 @@
 # Opiumware Installer
-yes
+@ discord.gg/getopium
