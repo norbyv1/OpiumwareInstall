@@ -1,6 +1,6 @@
 {
-  "Version": "v1.1.5-superpmos3",
-  "UpdateDate": "2025-07-17",
+  "Version": "v1.1.6.so.real",
+  "UpdateDate": "2025-07-19",
   "RobloxVersion": "version-4010d14c83284ae5",
-  "ChangeLog": "+ fixed race conditions where upon joining a game it will make your game unplayable (sometimes) + fixed dofile + improved setupvalue + added many func aliases + fixed compiler issue + fixed websocket crash popup when closing roblox"
+  "ChangeLog": "+ fixed instant teleport crashes (testing function i left in tp handler) + fixed game leave crashes (caused by websocket) + bug fixes (can't remember which)"
 }
