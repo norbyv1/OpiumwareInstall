@@ -1,6 +1,6 @@
 {
-  "Version": "v1.1.6.so.real",
-  "UpdateDate": "2025-07-19",
+  "Version": "v1.1.6.drawingfix.jb2",
+  "UpdateDate": "2025-07-20",
   "RobloxVersion": "version-4010d14c83284ae5",
-  "ChangeLog": "+ fixed instant teleport crashes (testing function i left in tp handler) + fixed game leave crashes (caused by websocket) + bug fixes (can't remember which)"
+  "ChangeLog": "+ Overhauled drawing library completely, all Lua UI's that use Drawing.new are fixed + fuckass bug fixed"
 }
