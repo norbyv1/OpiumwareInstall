@@ -1,6 +1,6 @@
 {
-  "Version": "v1.1.6.drawingfix.jb2",
-  "UpdateDate": "2025-07-20",
+  "Version": "v1.1.7.drawings",
+  "UpdateDate": "2025-07-21",
   "RobloxVersion": "version-4010d14c83284ae5",
-  "ChangeLog": "+ Overhauled drawing library completely, all Lua UI's that use Drawing.new are fixed + fuckass bug fixed"
+  "ChangeLog": "+ More Drawing bug fixes, mainly with tracers using Circle and Line objects + Made socket communication use less threads + Bug fixes"
 }
