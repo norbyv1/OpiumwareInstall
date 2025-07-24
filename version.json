@@ -1,6 +1,6 @@
 {
-  "Version": "v1.1.8.sunc.pmos",
-  "UpdateDate": "2025-07-23",
+  "Version": "v1.1.8.sunc.pmos.lua_Continuation.2",
+  "UpdateDate": "2025-07-24",
   "RobloxVersion": "version-774691dc93a947ef",
-  "ChangeLog": "+ Possibly fixed crash on startup + Fixed getsenv not getting scripts with script global set to nil + Fixed getrunningscripts not finding scripts parented to nil + Fixed setupvalue allowing invalid indexes + Rewrote getfunctionhash + Rewrote getscriptfromthread + Slightly changed how Opiumware executes which will help performance and execution stability + Updated to version-774691dc93a947ef - 89% sUNC right now, this score will increase over the next few weeks"
+  "ChangeLog": "+ Fixed and improved clonefunction (ib1 is FUCKING retarded :broken_heart: + :knot: + :chair: + :palm_tree:) + Improved hookfunction + Improved newlclosure + Improved getcallingscript - Removed custom bit lib (ib1 is FUCKING retarded :broken_heart: + :knot: + :chair: + :palm_tree:) [!!] EXISTING SCRIPTS WILL STILL WORK FINE, sUNC just made tests harder - 94% sUNC right now, this score will increase over the next few weeks"
 }
