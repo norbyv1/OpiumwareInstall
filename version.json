@@ -1,6 +1,6 @@
 {
-  "Version": "v1.1.7.drawings",
-  "UpdateDate": "2025-07-21",
-  "RobloxVersion": "version-4010d14c83284ae5",
-  "ChangeLog": "+ More Drawing bug fixes, mainly with tracers using Circle and Line objects + Made socket communication use less threads + Bug fixes"
+  "Version": "v1.1.8.sunc.pmos",
+  "UpdateDate": "2025-07-23",
+  "RobloxVersion": "version-774691dc93a947ef",
+  "ChangeLog": "+ Possibly fixed crash on startup + Fixed getsenv not getting scripts with script global set to nil + Fixed getrunningscripts not finding scripts parented to nil + Fixed setupvalue allowing invalid indexes + Rewrote getfunctionhash + Rewrote getscriptfromthread + Slightly changed how Opiumware executes which will help performance and execution stability + Updated to version-774691dc93a947ef - 89% sUNC right now, this score will increase over the next few weeks"
 }
