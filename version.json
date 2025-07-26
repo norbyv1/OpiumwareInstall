@@ -1,6 +1,6 @@
 {
-  "Version": "v1.1.8.sunc.pmos.lua_Continuation.2",
-  "UpdateDate": "2025-07-24",
+  "Version": "v1.1.9",
+  "UpdateDate": "2025-07-26",
   "RobloxVersion": "version-774691dc93a947ef",
-  "ChangeLog": "+ Fixed and improved clonefunction (ib1 is FUCKING retarded :broken_heart: + :knot: + :chair: + :palm_tree:) + Improved hookfunction + Improved newlclosure + Improved getcallingscript - Removed custom bit lib (ib1 is FUCKING retarded :broken_heart: + :knot: + :chair: + :palm_tree:) [!!] EXISTING SCRIPTS WILL STILL WORK FINE, sUNC just made tests harder - 94% sUNC right now, this score will increase over the next few weeks"
+  "ChangeLog": "+ Fixed and improved the \"Fire\" and \"Defer\" methods of getconnections, added support for Wait connection as well as added two new getconnections fields (\"WaitConnection\" and \"OnceConnection\") + Revamped filtergc + Roblox crash on startup is fixed (Finally!) - getconnections doesn't pass because idk (it's some :Wait() disabled enabled fuckass wording thing, norby will have that fixed (eventually!)) = Identifier still says Roblox/WinInet on sUNC, norby will have that fixed (eventually!) [!!] EXISTING SCRIPTS WILL STILL WORK FINE, sUNC just made tests harder - 95% sUNC right now, this score will increase over the next few weeks"
 }
