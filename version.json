@@ -1,6 +1,6 @@
 {
-  "Version": "v1.1.9",
-  "UpdateDate": "2025-07-26",
-  "RobloxVersion": "version-774691dc93a947ef",
-  "ChangeLog": "+ Fixed and improved the \"Fire\" and \"Defer\" methods of getconnections, added support for Wait connection as well as added two new getconnections fields (\"WaitConnection\" and \"OnceConnection\") + Revamped filtergc + Roblox crash on startup is fixed (Finally!) - getconnections doesn't pass because idk (it's some :Wait() disabled enabled fuckass wording thing, norby will have that fixed (eventually!)) = Identifier still says Roblox/WinInet on sUNC, norby will have that fixed (eventually!) [!!] EXISTING SCRIPTS WILL STILL WORK FINE, sUNC just made tests harder - 95% sUNC right now, this score will increase over the next few weeks"
+  "Version": "v1.2.0.Roblox.PMO.SM",
+  "UpdateDate": "2025-08-02",
+  "RobloxVersion": "version-6c0b1c5cf2914623",
+  "ChangeLog": "+ updated to version-6c0b1c5cf2914623 + I forgot all the changelogs that i did, there was a lot thats all i remember + Bug fixes (only changelog i remember!) = Fuckass roblox decided to switch up on luavmload = Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!) [!!] EXISTING SCRIPTS WILL STILL WORK FINE, sUNC just made tests harder - 95% sUNC right now, this score will increase over the next few weeks"
 }
