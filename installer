@@ -3,12 +3,26 @@
 main() {
     clear
 
-    if [ -w "/Applications" ]; then
+    USE_LOCAL=false
+
+    for arg in "$@"; do
+        case $arg in
+            --local)
+                USE_LOCAL=true
+                shift
+                ;;
+        esac
+    done
+
+    if [ "$USE_LOCAL" = true ]; then
+        echo -e "[!!] --local flag passed, using home directory"
+        curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rK5BHUbVSvnFxmAZq0zweH2aoMcuD16QW4Uty" | bash
+    elif [ -w "/Applications" ]; then
         curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rTRj2PCc9Ksmzt5wZYbSadLUJuRjyBA1Ornxf" | bash
     else
-        echo -e "${YELLOW}[!!] Local user detected, using home directory instead of global directory ${NC}"
+        echo -e "[!!] Local user detected, using home directory instead of global directory"
         curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rK5BHUbVSvnFxmAZq0zweH2aoMcuD16QW4Uty" | bash
     fi
 }
 
-main
+main "$@"
