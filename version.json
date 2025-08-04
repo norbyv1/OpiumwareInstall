@@ -1,6 +1,6 @@
 {
-  "Version": "v1.2.1.smallpatche",
-  "UpdateDate": "2025-08-02",
+  "Version": "v1.2.2",
+  "UpdateDate": "2025-08-03",
   "RobloxVersion": "version-6c0b1c5cf2914623",
-  "ChangeLog": "+ Made scripts that use queue_on_teleport wait until the game is loaded + Fixed namecall and index recursive crashes that somehow happened on game join = Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!) [!!] EXISTING SCRIPTS WILL STILL WORK FINE, sUNC just made tests harder - 95% sUNC right now, this score will increase over the next few weeks"
+  "ChangeLog": "+ NEW AUTO UPDATER FEATURE! There will be a new prompt that will pop up on launch if a new update is detected.  [!!] (This auto update feature will only activate for future updates, please download this update for it to be enabled) + New Logo and small UI improvements + Improved restorefunction and getconnections + Bug and performance fixes to getgc, getloadedmodules, getrunningscripts [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!) [!!] EXISTING SCRIPTS WILL STILL WORK FINE, sUNC just made tests harder - 97% sUNC right now, this score will increase over the next few weeks"
 }
