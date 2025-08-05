@@ -1,6 +1,6 @@
 {
-  "Version": "v1.2.2",
-  "UpdateDate": "2025-08-03",
+  "Version": "v1.2.3",
+  "UpdateDate": "2025-08-04",
   "RobloxVersion": "version-6c0b1c5cf2914623",
-  "ChangeLog": "+ NEW AUTO UPDATER FEATURE! There will be a new prompt that will pop up on launch if a new update is detected.  [!!] (This auto update feature will only activate for future updates, please download this update for it to be enabled) + New Logo and small UI improvements + Improved restorefunction and getconnections + Bug and performance fixes to getgc, getloadedmodules, getrunningscripts [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!) [!!] EXISTING SCRIPTS WILL STILL WORK FINE, sUNC just made tests harder - 97% sUNC right now, this score will increase over the next few weeks"
+  "ChangeLog": "+ Miscellaneous bug fixes + Fixes to installer + Fixed a fuckass getproto/getprotos bug + Made protos inactive [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!) + 100% SUNCCCCCCCCCCCCCCCCCCCCCCCC!!!!!!!"
 }
