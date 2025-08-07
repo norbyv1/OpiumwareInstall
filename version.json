@@ -1,6 +1,6 @@
 {
-  "Version": "v1.2.3",
-  "UpdateDate": "2025-08-04",
-  "RobloxVersion": "version-6c0b1c5cf2914623",
-  "ChangeLog": "+ Miscellaneous bug fixes + Fixes to installer + Fixed a fuckass getproto/getprotos bug + Made protos inactive [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!) + 100% SUNCCCCCCCCCCCCCCCCCCCCCCCC!!!!!!!"
+  "Version": "v1.2.4.sigma",
+  "UpdateDate": "2025-08-06",
+  "RobloxVersion": "version-2cd3c2cb69e54247",
+  "ChangeLog": "+ added carti + updated to version-2cd3c2cb69e54247 + Fixed some bugs, particularly with getconnections where if you passed a specific type of signal it would crash + Fixed game join crashes and weird namecall/index crashes + still 100% sunc yay - removed carti - UPDATES WON'T BE THIS LATE AGAIN (not guaranteed*) [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!)"
 }
