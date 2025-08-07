@@ -1,6 +1,6 @@
 {
-  "Version": "v1.2.4.sigma",
+  "Version": "v1.2.4.DecompilerFix",
   "UpdateDate": "2025-08-06",
   "RobloxVersion": "version-2cd3c2cb69e54247",
-  "ChangeLog": "+ added carti + updated to version-2cd3c2cb69e54247 + Fixed some bugs, particularly with getconnections where if you passed a specific type of signal it would crash + Fixed game join crashes and weird namecall/index crashes + still 100% sunc yay - removed carti - UPDATES WON'T BE THIS LATE AGAIN (not guaranteed*) [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!)"
+  "ChangeLog": "+ Fixed decompiler not working for Intel x86 users [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!)"
 }
