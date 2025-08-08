@@ -1,6 +1,6 @@
 {
-  "Version": "v1.2.4.DecompilerFix",
-  "UpdateDate": "2025-08-06",
+  "Version": "v1.2.5",
+  "UpdateDate": "2025-08-08",
   "RobloxVersion": "version-2cd3c2cb69e54247",
-  "ChangeLog": "+ Fixed decompiler not working for Intel x86 users [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!)"
+  "ChangeLog": "+ Fixed crashes related to opening Roblox and joining games + Fixed httpget bug relating to a non initialized ptr - Had a weird string obfuscation issue (which never happened before) where it would corrupt sometimes, removed obfuscation off the parts where it corrupted [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!)"
 }
