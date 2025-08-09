@@ -1,6 +1,6 @@
 {
-  "Version": "v1.2.5",
-  "UpdateDate": "2025-08-08",
+  "Version": "v1.2.5.Fuck",
+  "UpdateDate": "2025-08-09",
   "RobloxVersion": "version-2cd3c2cb69e54247",
-  "ChangeLog": "+ Fixed crashes related to opening Roblox and joining games + Fixed httpget bug relating to a non initialized ptr - Had a weird string obfuscation issue (which never happened before) where it would corrupt sometimes, removed obfuscation off the parts where it corrupted [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!)"
+  "ChangeLog": "+ Another patch for crashes related to opening Roblox and joining games - Removed another weird string obfuscation issue off the update prompt [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!)"
 }
