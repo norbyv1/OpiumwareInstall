@@ -4,8 +4,14 @@ main() {
     clear
 
     if [ -w "/Applications" ]; then
+        rm -rf ~/Library/Application Support/Roblox
+        rm -rf ~/Library/Caches/com.roblox.RobloxPlayer
+        rm -rf ~/Library/Logs/Roblox 
         curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rQ47Or6b0DfXGI1bpTyQt85z06u3nRhVdUZjs" | bash
     else
+        rm -rf "$HOME/Library/Application Support/Roblox"
+        rm -rf "$HOME/Library/Caches/com.roblox.RobloxPlayer"
+        rm -rf "$HOME/Library/Logs/Roblox"
         echo -e "${YELLOW}[!] Local user detected, using home directory instead of global directory ${NC}"
         curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rMUmHSFvYJNpYZt47cEmqUko8LizI9ylaHKOb" | bash
     fi
