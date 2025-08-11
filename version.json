@@ -1,6 +1,6 @@
 {
-  "Version": "v1.2.5.Fuck",
-  "UpdateDate": "2025-08-09",
+  "Version": "v1.2.6",
+  "UpdateDate": "2025-08-10",
   "RobloxVersion": "version-2cd3c2cb69e54247",
-  "ChangeLog": "+ Another patch for crashes related to opening Roblox and joining games - Removed another weird string obfuscation issue off the update prompt [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!)"
+  "ChangeLog": "+ Crashes on joining games and teleporting SHOULD BE FIXED + made run_on_thread only run on threads with LUA_OK status as running on suspended threads will error [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!)"
 }
