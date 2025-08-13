@@ -1,6 +1,6 @@
 {
-  "Version": "v1.2.7",
-  "UpdateDate": "2025-08-10",
-  "RobloxVersion": "version-2cd3c2cb69e54247",
-  "ChangeLog": "+ Crashes on joining games and teleporting should be fixed x2 + added keypress_mac / keypressmac, keyrelease_mac / keyreleasemac, keytap_mac / keytapmac, keyclick_mac / keyclickmac to build on more script stability (normal keytap for windows keycodes is keypress, keyrelease, keytap, keyclick) + Fixed a weird issue where roblox kept asking to have access to other apps (thanks @RadCatBoi for reporting) + Added error redirect feature [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!)"
+  "Version": "v1.2.8",
+  "UpdateDate": "2025-08-13",
+  "RobloxVersion": "version-b0ecebc969ed4f86",
+  "ChangeLog": "+ Crashes on joining games and teleporting should be fixed x3 + Rewrote getloadedmodules getrunningscripts and getscripts + Rewrote execution + perf fixes + updated to version-b0ecebc969ed4f86 [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!)"
 }
