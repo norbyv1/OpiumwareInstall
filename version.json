@@ -1,6 +1,6 @@
 {
-  "Version": "v1.2.7.fuh",
-  "UpdateDate": "2025-08-14",
+  "Version": "v1.2.8.Wowzers",
+  "UpdateDate": "2025-08-15",
   "RobloxVersion": "version-c5a778aa4ab84bbf",
-  "ChangeLog": "+ updated to version-c5a778aa4ab84bbf"
+  "ChangeLog": "+ Fixed crash on join + Fixed a sUNC where firesignal was leaking the caller or wtv (getfenv(3)) + Fixed a issue where a userdata obj would corrupt and kill itself (getconnections) + Fixed a crashing issue where socket would kill itself if multiple things were sent too quickly + Fixed installer giving a fuckton of errors about why it cannot remove RobloxPlayerInstaller fuck you + Yielding will not crash anymore when leaving a game  + Fixed leaving game hook + Huge performance fixes"
 }
