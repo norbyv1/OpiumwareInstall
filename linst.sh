@@ -6,7 +6,7 @@ YELLOW='\033[1;33m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rT1WXKpc9Ksmzt5wZYbSadLUJuRjyBA1Ornxf"
+DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rrBazZRQ7PE13xQGZJoMgV5Oihase8KTdIuHj"
 MODULES_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rRLgqCJ6EwKLWJ0ADYbMyxP8H6QpokZ7F1aiu"
 UI_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3r2OWihP546IZsjfGnxhyUOmqEYWi5RbB3D1da"
 
@@ -63,7 +63,8 @@ main() {
     mv -f Resources/Server "$HOME/Opiumware/modules/Server/server"
     mv -f Resources/luau-lsp "$HOME/Opiumware/modules/luau-lsp/luau-lsp"
     mv -f ./Opiumware.app "$HOME/Applications/Opiumware.app"
-    rm -rf "$HOME/Applications/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app" Resources/Patcher __MACOSX Resources libSystem.zip modules.zip OpiumwareUI.zip
+    rm -rf Resources/Patcher __MACOSX Resources libSystem.zip modules.zip OpiumwareUI.zip
+    rm -rf "$HOME/Applications/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app" >/dev/null 2>&1
     echo -e "${GREEN}[*] Finished install${NC}"
     echo -e "${GREEN}Launch Roblox from: $HOME/Applications/Roblox.app and Opiumware from: $HOME/Applications/Opiumware.app${NC}"
     exit
