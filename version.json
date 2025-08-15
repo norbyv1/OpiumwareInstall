@@ -1,6 +1,6 @@
 {
-  "Version": "v1.2.8",
-  "UpdateDate": "2025-08-13",
-  "RobloxVersion": "version-b0ecebc969ed4f86",
-  "ChangeLog": "+ Crashes on joining games and teleporting should be fixed x3 + Rewrote getloadedmodules getrunningscripts and getscripts + Rewrote execution + perf fixes + updated to version-b0ecebc969ed4f86 [=] Identifier still says Roblox/WinInet on sUNC, I will have that fixed (eventually!)"
+  "Version": "v1.2.7.fuh",
+  "UpdateDate": "2025-08-14",
+  "RobloxVersion": "version-c5a778aa4ab84bbf",
+  "ChangeLog": "+ updated to version-c5a778aa4ab84bbf"
 }
