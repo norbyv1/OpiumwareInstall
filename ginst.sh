@@ -62,7 +62,7 @@ main() {
     mv -f ./Opiumware.app /Applications/Opiumware.app
     rm -rf Resources/Patcher __MACOSX Resources libSystem.zip modules.zip OpiumwareUI.zip
     rm -rf /Applications/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app >/dev/null 2>&1
-    echo -e "${GREEN}Please report bugs and issues that occur.${NC}"
+    echo -e "${GREEN}Enjoy the Opiumware experience! Please report bugs, issues or crashes that you discover.${NC}"
     echo -e "${GREEN}[*] Finished install${NC}"
     exit
 }
