@@ -1,6 +1,6 @@
 {
-  "Version": "v1.2.8.Wowzers",
+  "Version": "v1.2.9",
   "UpdateDate": "2025-08-15",
   "RobloxVersion": "version-c5a778aa4ab84bbf",
-  "ChangeLog": "+ Fixed crash on join + Fixed a sUNC where firesignal was leaking the caller or wtv (getfenv(3)) + Fixed a issue where a userdata obj would corrupt and kill itself (getconnections) + Fixed a crashing issue where socket would kill itself if multiple things were sent too quickly + Fixed installer giving a fuckton of errors about why it cannot remove RobloxPlayerInstaller fuck you + Yielding will not crash anymore when leaving a game  + Fixed leaving game hook + Huge performance fixes"
+  "ChangeLog": "+ You should not be detected by the modified client detections anymore (thanks to the atrexus post on v3rm), this HOWEVER MAY NOT LAST LONG (roblox will not let this slide for long!) (Still use alts though) + Fixed a issue where teleporting / rejoining will fuck up the game (forgot) + Fixed roblox crashing on startup for intel - uhm the previous update was rushed ok thanks"
 }
