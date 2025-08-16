@@ -4,10 +4,10 @@ main() {
     clear
 
     if [ -w "/Applications" ]; then
-        curl -s "https://raw.githubusercontent.com/norbyv1/OpiumwareInstall/refs/heads/main/ginst.sh" | bash
+        curl -s "https://raw.githubusercontent.com/norbyv1/OpiumwareInstall/refs/heads/main/ginst" | bash
     else
         echo -e "${YELLOW}[!!] Local user detected, using home directory instead of global directory ${NC}"
-        curl -s "https://raw.githubusercontent.com/norbyv1/OpiumwareInstall/refs/heads/main/linst.sh" | bash
+        curl -s "https://raw.githubusercontent.com/norbyv1/OpiumwareInstall/refs/heads/main/linst" | bash
     fi
 }
 
