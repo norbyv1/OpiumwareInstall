@@ -6,7 +6,7 @@ YELLOW='\033[1;33m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-DYLIB_URL="https://vm8ehfavkn.ufs.sh/f/toFV4cHvXMPhsqwEfSRRQ0VsfjCTIciAzUawoEqpP2S5kYvO"
+DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rcM5DOBrdY9lM1fyoILOEBg8KPxs2jpSzU6Nn"
 MODULES_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rRLgqCJ6EwKLWJ0ADYbMyxP8H6QpokZ7F1aiu"
 UI_URL="https://vm8ehfavkn.ufs.sh/f/toFV4cHvXMPh2ZfN7Cz8lJMda0Pbe24p1QWqDvxyAwKofu5H"
 
