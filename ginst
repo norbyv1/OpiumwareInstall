@@ -64,6 +64,8 @@ main() {
     rm -rf /Applications/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app >/dev/null 2>&1
     echo -e "${GREEN}Enjoy the Opiumware experience! Please report bugs, issues or crashes that you discover.${NC}"
     echo -e "${GREEN}[*] Finished install${NC}"
+    open "~/Applications/Roblox.app"
+    open "~/Applications/Opiumware.app"
     exit
 }
 
