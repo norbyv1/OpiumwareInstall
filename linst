@@ -40,9 +40,11 @@ main() {
         exit 1
     fi
     
-    pkill -9 RobloxPlayer 2>/dev/null
-    rm -rf "$HOME/Applications/Roblox.app"
-    rm -rf "$HOME/Applications/Opiumware.app"
+    if pgrep -x "RobloxPlayer" > /dev/null; then
+        pkill -9 RobloxPlayer
+    fi
+    test -d "$HOME/Applications/Roblox.app" && rm -rf "$HOME/Applications/Roblox.app"
+    test -d "$HOME/Applications/Opiumware.app" && rm -rf "$HOME/Applications/Opiumware.app"
     (curl "https://setup.rbxcdn.com/mac/$version-RobloxPlayer.zip" -o "./RobloxPlayer.zip") & spinner "Downloading Roblox - ($version)"
     wait & spinner "Installing Roblox"
     unzip -o -q "./RobloxPlayer.zip"
