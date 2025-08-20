@@ -1,6 +1,6 @@
 {
-  "Version": "v1.2.9",
+  "Version": "v1.3.0",
   "UpdateDate": "2025-08-15",
   "RobloxVersion": "version-c5a778aa4ab84bbf",
-  "ChangeLog": "brotha roblos pmo"
+  "ChangeLog": "[^] Improvements to installer and Installer now launches both applications on finish [^] New API revamp [^] Optimizations to some functions [^] Fixed getrunningscripts returning duplicates [^] Websocket is now on by default [^] This update should fix crashing issues of Roblox on game join and on launch [^] Updated to version-ad972b033ced4f22"
 }
