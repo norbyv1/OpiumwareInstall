@@ -31,7 +31,7 @@ main() {
     spinner "Fetching version information"
     json=$(curl -s "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
     local version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | grep -o '[^"]*$')
-    if [ "$version" != "version-c5a778aa4ab84bbf" ]; then
+    if [ "$version" != "version-ad972b033ced4f22" ]; then
         echo -e "${RED}Opiumware has not yet updated to the latest version of Roblox ($version); aborting installation!${NC}"
         exit 1
     fi
