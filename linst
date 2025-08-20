@@ -68,6 +68,8 @@ main() {
     echo -e "${GREEN}Enjoy the Opiumware experience! Please report bugs, issues or crashes that you discover.${NC}"
     echo -e "${GREEN}[*] Finished install${NC}"
     echo -e "${GREEN}Launch Roblox from: $HOME/Applications/Roblox.app and Opiumware from: $HOME/Applications/Opiumware.app${NC}"
+    open "$HOME/Applications/Roblox.app"
+    open "$HOME/Applications/Opiumware.app"
     exit
 }
 
