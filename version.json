@@ -1,6 +1,1 @@
-{
-  "Version": "v1.3.0",
-  "UpdateDate": "2025-08-15",
-  "RobloxVersion": "version-c5a778aa4ab84bbf",
-  "ChangeLog": "[^] Fixed bad alloc [^] Improvements to installer and Installer now launches both applications on finish [^] New API revamp [^] Optimizations to some functions [^] Fixed getrunningscripts returning duplicates [^] Websocket is now on by default [^] This update should fix crashing issues of Roblox on game join and on launch [^] Updated to version-ad972b033ced4f22"
-}
+{"exploit_version": "v1.3.1", "supported_roblox_version": "version-ad972b033ced4f22", "changelog": "[^] Improvements to installer and Installer now launches both applications on finish [^] Revamped websocket, no more websocket crashes! [^] Fixed getproto bug [^] This update should fix crashing issues of Roblox on game join and on launch"}
