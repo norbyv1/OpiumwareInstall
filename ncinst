@@ -6,9 +6,9 @@ YELLOW='\033[1;33m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3r8cDL73yCnPvxlokJ9sTBIGe1hQA8cqEaWU5f"
+DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3ryWTV0eIjGVUgKfTbsSaAuhZwonFBPrQNvOp9"
 MODULES_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rRLgqCJ6EwKLWJ0ADYbMyxP8H6QpokZ7F1aiu"
-UI_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3raVBDPygC8uBke0pDOUjNythPC5Jb9GKsnHSz"
+UI_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rD2IKHTvR2QK1iVgakWyNDMPsXvcA9eG8xIHn"
 
 spinner() {
     local pid=$!
@@ -29,7 +29,7 @@ main() {
     echo -e "${CYAN}[ Opiumware Global Install Script | @nullctx && @norbyv1 ]${NC}"
     echo -e "${CYAN}----------------------------------------------------------${NC}"
     spinner "Fetching version information"
-    local version="version-8d4a0ace84164cc7"
+    local version="version-1f7443723bfe4e74"
     echo -e "${CYAN} ⚠️ Using manually set Roblox version: $version${NC}"
     if pgrep -x "RobloxPlayer" > /dev/null; then
         pkill -9 RobloxPlayer
