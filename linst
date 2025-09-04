@@ -6,9 +6,9 @@ YELLOW='\033[1;33m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3r8cDL73yCnPvxlokJ9sTBIGe1hQA8cqEaWU5f"
+DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3ryWTV0eIjGVUgKfTbsSaAuhZwonFBPrQNvOp9"
 MODULES_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rRLgqCJ6EwKLWJ0ADYbMyxP8H6QpokZ7F1aiu"
-UI_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3raVBDPygC8uBke0pDOUjNythPC5Jb9GKsnHSz"
+UI_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rD2IKHTvR2QK1iVgakWyNDMPsXvcA9eG8xIHn"
 
 spinner() {
     local pid=$!
@@ -26,7 +26,7 @@ spinner() {
 
 main() {
     clear
-    echo -e "${CYAN}[ Opiumware Local Install Script | @nullctx && @norbyv1 ]${NC}"
+    echo -e "${CYAN}[ Opiumware Local Install Script | @tufflodestone && @norbyv1 ]${NC}"
     echo -e "${CYAN}----------------------------------------------------------${NC}"
 
     mkdir -p "$HOME/Applications"
@@ -35,7 +35,7 @@ main() {
     json=$(curl -s "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
     local version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | grep -o '[^"]*$')
 
-    if [ "$version" != "version-8d4a0ace84164cc7" ]; then
+    if [ "$version" != "version-1f7443723bfe4e74" ]; then
         echo -e "${RED}Opiumware has not yet updated to the latest version of Roblox ($version); aborting installation!${NC}"
         exit 1
     fi
