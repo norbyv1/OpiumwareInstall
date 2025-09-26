@@ -6,7 +6,7 @@ YELLOW='\033[1;33m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rxlHVrDAxRQJ9o3TnX65LaGyPvFWY7lBCu1Md"
+DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rUgb5Azki1KEwXJWkZMRgmNnt4zaS5Bp3uOFe"
 MODULES_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rRLgqCJ6EwKLWJ0ADYbMyxP8H6QpokZ7F1aiu"
 UI_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rD2IKHTvR2QK1iVgakWyNDMPsXvcA9eG8xIHn"
 
@@ -26,17 +26,16 @@ spinner() {
 
 main() {
     clear
-    echo -e "${CYAN}[ Opiumware Global Install Script | @norbyv1 && @tufflodestone ]${NC}"
+    echo -e "${CYAN}[ Opiumware (native apple silicon) Global Install Script | @nullctx && @norbyv1 ]${NC}"
     echo -e "${CYAN}----------------------------------------------------------${NC}"
     spinner "Fetching version information"
-    local version="version-d0644711edef4361"
-    echo -e "${CYAN} ⚠️ Using manually set Roblox version: $version${NC}"
-    if pgrep -x "RobloxPlayer" > /dev/null; then
-        pkill -9 RobloxPlayer
-    fi
+    json=$(curl -s "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
+    local version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | grep -o '[^"]*$')
+    killall -9 RobloxPlayer &>/dev/null
+    killall -9 Opiumware &>/dev/null
     test -d "/Applications/Roblox.app" && rm -rf "/Applications/Roblox.app"
     test -d "/Applications/Opiumware.app" && rm -rf "/Applications/Opiumware.app"
-    (curl "https://setup.rbxcdn.com/mac/$version-RobloxPlayer.zip" -o "./RobloxPlayer.zip") & spinner "Downloading Roblox - ($version)"
+    (curl "https://setup.rbxcdn.com/mac/arm64/$version-RobloxPlayer.zip" -o "./RobloxPlayer.zip") & spinner "Downloading Roblox - ($version)"
     wait & spinner "Installing Roblox"
     unzip -o -q "./RobloxPlayer.zip"
     mv ./RobloxPlayer.app /Applications/Roblox.app
@@ -59,8 +58,6 @@ main() {
     rm -rf Resources/Patcher __MACOSX Resources libSystem.zip modules.zip OpiumwareUI.zip
     rm -rf /Applications/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app >/dev/null 2>&1
     echo -e "${GREEN}Enjoy the Opiumware experience! Please report bugs, issues or crashes that you discover.${NC}"
-    open /Applications/Roblox.app
-    open /Applications/Opiumware.app
     exit
 }
 
