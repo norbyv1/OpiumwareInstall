@@ -6,7 +6,7 @@ YELLOW='\033[1;33m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rxlHVrDAxRQJ9o3TnX65LaGyPvFWY7lBCu1Md"
+DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3r3R93rylwryKQVZNaYpJLeUkltnWST92IEHCv"
 MODULES_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rRLgqCJ6EwKLWJ0ADYbMyxP8H6QpokZ7F1aiu"
 UI_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rD2IKHTvR2QK1iVgakWyNDMPsXvcA9eG8xIHn"
 
@@ -31,13 +31,8 @@ main() {
     spinner "Fetching version information"
     json=$(curl -s "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
     local version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | grep -o '[^"]*$')
-    if [ "$version" != "version-d0644711edef4361" ]; then
-        echo -e "${RED}Opiumware has not yet updated to the latest version of Roblox ($version); aborting installation!${NC}"
-        exit 1
-    fi
-    if pgrep -x "RobloxPlayer" > /dev/null; then
-        pkill -9 RobloxPlayer
-    fi
+    killall -9 RobloxPlayer &>/dev/null
+    killall -9 Opiumware &>/dev/null
     test -d "/Applications/Roblox.app" && rm -rf "/Applications/Roblox.app"
     test -d "/Applications/Opiumware.app" && rm -rf "/Applications/Opiumware.app"
     (curl "https://setup.rbxcdn.com/mac/$version-RobloxPlayer.zip" -o "./RobloxPlayer.zip") & spinner "Downloading Roblox - ($version)"
@@ -63,6 +58,7 @@ main() {
     rm -rf Resources/Patcher __MACOSX Resources libSystem.zip modules.zip OpiumwareUI.zip
     rm -rf /Applications/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app >/dev/null 2>&1
     echo -e "${GREEN}Enjoy the Opiumware experience! Please report bugs, issues or crashes that you discover.${NC}"
+    echo -e "${YELLOW}This is detected. Consider using a alt.${NC}"
     open /Applications/Roblox.app
     open /Applications/Opiumware.app
     exit
