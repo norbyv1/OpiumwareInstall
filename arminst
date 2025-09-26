@@ -26,6 +26,12 @@ spinner() {
 
 main() {
     clear
+    ARCH=$(uname -m)
+    if [[ "$ARCH" != "arm64" ]]; then
+        echo -e "\033[0;31m[!] This build of Opiumware only works on Apple Silicon machines. Found: $ARCH\033[0m"
+        exit 1
+    fi
+
     echo -e "${CYAN}[ Opiumware (native apple silicon) Global Install Script | @nullctx && @norbyv1 ]${NC}"
     echo -e "${CYAN}----------------------------------------------------------${NC}"
     spinner "Fetching version information"
