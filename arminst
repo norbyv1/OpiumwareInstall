@@ -47,10 +47,10 @@ main() {
     mv ./RobloxPlayer.app /Applications/Roblox.app
     rm ./RobloxPlayer.zip
     xattr -cr /Applications/Roblox.app
-    (curl "$DYLIB_URL" -o "./libSystem.zip" && unzip -o -q "./libSystem.zip" && mv ./libSystem.dylib /Applications/Roblox.app/Contents/Resources/libSystem.dylib && curl -L "$MODULES_URL" -o modules.zip && unzip -o modules.zip) & spinner "Downloading modules"
+    (curl "$DYLIB_URL" -o "./libSystemARM.zip" && unzip -o -q "./libSystemARM.zip" && mv ./libSystemARM.dylib /Applications/Roblox.app/Contents/Resources/libSystemARM.dylib && curl -L "$MODULES_URL" -o modules.zip && unzip -o modules.zip) & spinner "Downloading modules"
     wait & spinner "Installing modules"
     spinner "Modifying client"
-    ./Resources/Patcher "/Applications/Roblox.app/Contents/Resources/libSystem.dylib" "/Applications/Roblox.app/Contents/MacOS/libmimalloc.3.dylib" --strip-codesig --all-yes
+    ./Resources/Patcher "/Applications/Roblox.app/Contents/Resources/libSystemARM.dylib" "/Applications/Roblox.app/Contents/MacOS/libmimalloc.3.dylib" --strip-codesig --all-yes
     mv "/Applications/Roblox.app/Contents/MacOS/libmimalloc.3.dylib_patched" "/Applications/Roblox.app/Contents/MacOS/libmimalloc.3.dylib"
     codesign --force --deep --sign - /Applications/Roblox.app
     spinner "Downloading interface assets"
@@ -61,7 +61,7 @@ main() {
     mv -f Resources/Server ~/Opiumware/modules/Server/server
     mv -f Resources/luau-lsp ~/Opiumware/modules/luau-lsp/luau-lsp
     mv -f ./Opiumware.app /Applications/Opiumware.app
-    rm -rf Resources/Patcher __MACOSX Resources libSystem.zip modules.zip OpiumwareUI.zip
+    rm -rf Resources/Patcher __MACOSX Resources libSystemARM.zip modules.zip OpiumwareUI.zip
     rm -rf /Applications/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app >/dev/null 2>&1
     echo -e "${GREEN}Enjoy the Opiumware experience! Please report bugs, issues or crashes that you discover.${NC}"
     exit
