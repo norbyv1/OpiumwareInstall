@@ -1,1 +1,1 @@
-{"exploit_version": "v2.0.2", "supported_roblox_version": "version-c19e695f9cce4f80", "changelog": "[^] getactors and other related bugs are fixed\n[^] updated to version-c19e695f9cce4f80\n[^] Teleporting during yielding will not crash anymore\n✌🏼"}
+{"exploit_version": "v2.0.2", "supported_roblox_version": "version-c19e695f9cce4f80", "changelog": "[+] fixed run_on_thread and run_on_actor not working"}
