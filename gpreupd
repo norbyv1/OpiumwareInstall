@@ -27,10 +27,6 @@ spinner() {
 main() {
     json=$(curl -s "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
     local version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | grep -o '[^"]*$')
-    killall -9 RobloxPlayer &>/dev/null
-    killall -9 Opiumware &>/dev/null
-    test -d "/Applications/Roblox.app" && rm -rf "/Applications/Roblox.app"
-    test -d "/Applications/Opiumware.app" && rm -rf "/Applications/Opiumware.app"
     (curl "https://setup.rbxcdn.com/mac/$version-RobloxPlayer.zip" -o "./RobloxPlayer.zip") & spinner "Downloading Roblox - ($version)"
     wait & spinner "Installing Roblox"
     unzip -o -q "./RobloxPlayer.zip"
