@@ -25,6 +25,8 @@ spinner() {
 }
 
 main() {
+    json=$(curl -s "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
+    local version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | grep -o '[^"]*$')
     killall -9 RobloxPlayer &>/dev/null
     killall -9 Opiumware &>/dev/null
     test -d "/Applications/Roblox.app" && rm -rf "/Applications/Roblox.app"
