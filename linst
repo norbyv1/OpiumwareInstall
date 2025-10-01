@@ -36,8 +36,8 @@ main() {
     local version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | grep -o '[^"]*$')
     killall -9 RobloxPlayer &>/dev/null
     killall -9 Opiumware &>/dev/null
-    test -d "$HOME/Applications/Roblox.app" && rm -rf "$HOME/Applications/Roblox.app"
-    test -d "$HOME/Applications/Opiumware.app" && rm -rf "$HOME/Applications/Opiumware.app"
+    rm -rf "$HOME/Applications/Roblox.app"
+    rm -rf "$HOME/Applications/Opiumware.app"
     if [ "$version" == "version-01a477dd52194f10" ]; then
         curl -s "https://raw.githubusercontent.com/norbyv1/OpiumwareInstall/main/lpreupd" | bash
         exit 0
