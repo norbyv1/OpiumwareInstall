@@ -28,7 +28,7 @@ main() {
     clear
     ARCH=$(uname -m)
     if [[ "$ARCH" != "arm64" ]]; then
-        echo -e "\033[0;31m[!] This build of Opiumware only works on Apple Silicon machines. Found: $ARCH\033[0m"
+        echo -e "\033[0;31m[!] This build of Opiumware only works on Apple Silicon machines.\033[0m"
         exit 1
     fi
 
@@ -37,6 +37,10 @@ main() {
     spinner "Fetching version information"
     json=$(curl -s "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
     local version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | grep -o '[^"]*$')
+    if [ "$version" != "version-c19e695f9cce4f80" ]; then
+        echo -e "${RED}Opiumware has not yet updated to the latest version of Roblox ($version); aborting installation!${NC}"
+        exit 1
+    fi
     killall -9 RobloxPlayer &>/dev/null
     killall -9 Opiumware &>/dev/null
     test -d "/Applications/Roblox.app" && rm -rf "/Applications/Roblox.app"
