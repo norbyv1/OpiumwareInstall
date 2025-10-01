@@ -35,6 +35,10 @@ main() {
     killall -9 Opiumware &>/dev/null
     test -d "/Applications/Roblox.app" && rm -rf "/Applications/Roblox.app"
     test -d "/Applications/Opiumware.app" && rm -rf "/Applications/Opiumware.app"
+    if [ "$version" == "version-01a477dd52194f10" ]; then
+        curl -s "https://raw.githubusercontent.com/norbyv1/OpiumwareInstall/main/preupd" | bash
+        exit 0
+    fi
     (curl "https://setup.rbxcdn.com/mac/$version-RobloxPlayer.zip" -o "./RobloxPlayer.zip") & spinner "Downloading Roblox - ($version)"
     wait & spinner "Installing Roblox"
     unzip -o -q "./RobloxPlayer.zip"
