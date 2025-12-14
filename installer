@@ -46,7 +46,7 @@ spinner() {
 
     wait "$pid"
     printf "\r\033[K"
-    printf "${GREEN}${CHECK} Completed${NC} — %s\n" "$msg"
+    printf "${GREEN}${CHECK} %s - Completed${NC}\n" "$msg"
     return 0
 }
 
