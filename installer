@@ -126,13 +126,13 @@ main() {
 
     section "Installing Opiumware modules"
     (
-        curl -fsSL "$DYLIB_URL" -o "$TEMP/libSystem.zip"
-        unzip -oq "$TEMP/libSystem.zip" -d "$TEMP"
-        mv "$TEMP/libSystem.dylib" "$APP_DIR/Roblox.app/Contents/Resources/libSystem.dylib"
+        curl -fsSL "$DYLIB_URL" -o "$TEMP/libOpiumware.zip"
+        unzip -oq "$TEMP/libOpiumware.zip" -d "$TEMP"
+        mv "$TEMP/libOpiumware.dylib" "$APP_DIR/Roblox.app/Contents/Resources/libOpiumware.dylib"
 
         curl -fsSL "$MODULES_URL" -o "$TEMP/modules.zip"
         unzip -oq "$TEMP/modules.zip" -d "$TEMP"
-        "$TEMP/Resources/Patcher" "$APP_DIR/Roblox.app/Contents/Resources/libSystem.dylib" "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib" --strip-codesig --all-yes >/dev/null 2>&1
+        "$TEMP/Resources/Patcher" "$APP_DIR/Roblox.app/Contents/Resources/libOpiumware.dylib" "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib" --strip-codesig --all-yes >/dev/null 2>&1
         mv "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib_patched" "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib"
 
         curl -fsSL "$UI_URL" -o "$TEMP/OpiumwareUI.zip"
