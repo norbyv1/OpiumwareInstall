@@ -18,9 +18,15 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rj5vavQ8I3wQG4vqTr2FNCdMP5UgDc79pzOYm"
+DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rrtiCyp3Q7PE13xQGZJoMgV5Oihase8KTdIuH"
 MODULES_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rRLgqCJ6EwKLWJ0ADYbMyxP8H6QpokZ7F1aiu"
 UI_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rD2IKHTvR2QK1iVgakWyNDMPsXvcA9eG8xIHn"
+
+ARCH=$(uname -m)
+if [[ "$ARCH" != "arm64" ]]; then
+    echo -e "${INFO} Your system does not use Apple Silicon (ARM64). Please use the standard installer for Intel-based Macs."
+    exit 0
+fi
 
 if [ -w "/Applications" ]; then
     APP_DIR="/Applications"
@@ -95,7 +101,7 @@ banner() {
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
 EOF
     echo -e "${NC}"
-    echo -e "${BLUE}=[ Opiumware Installer ]=${NC}"
+    echo -e "${BLUE}=[ Opiumware (Apple Silicon) Installer ]=${NC}"
     echo -e "${CYAN}Developed by @norbyv1 && @tufflodestone${NC}"
 }
 
@@ -117,7 +123,7 @@ main() {
 
     section "Downloading Roblox - ($version)"
     (
-        curl -fsSL "https://setup.rbxcdn.com/mac/$version-RobloxPlayer.zip" -o "$TEMP/RobloxPlayer.zip"
+        curl -fsSL "https://setup.rbxcdn.com/mac/arm64/$version-RobloxPlayer.zip" -o "$TEMP/RobloxPlayer.zip"
         unzip -oq "$TEMP/RobloxPlayer.zip" -d "$TEMP"
         mv "$TEMP/RobloxPlayer.app" "$APP_DIR/Roblox.app"
         xattr -cr "$APP_DIR/Roblox.app"
@@ -125,13 +131,13 @@ main() {
 
     section "Installing Opiumware modules"
     (
-        curl -fsSL "$DYLIB_URL" -o "$TEMP/libOpiumware.zip"
-        unzip -oq "$TEMP/libOpiumware.zip" -d "$TEMP"
-        mv "$TEMP/libOpiumware.dylib" "$APP_DIR/Roblox.app/Contents/Resources/libOpiumware.dylib"
+        curl -fsSL "$DYLIB_URL" -o "$TEMP/libOpiumwareNative.zip"
+        unzip -oq "$TEMP/libOpiumwareNative.zip" -d "$TEMP"
+        mv "$TEMP/libOpiumwareNative.dylib" "$APP_DIR/Roblox.app/Contents/Resources/libOpiumwareNative.dylib"
 
         curl -fsSL "$MODULES_URL" -o "$TEMP/modules.zip"
         unzip -oq "$TEMP/modules.zip" -d "$TEMP"
-        "$TEMP/Resources/Patcher" "$APP_DIR/Roblox.app/Contents/Resources/libOpiumware.dylib" "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib" --strip-codesig --all-yes >/dev/null 2>&1
+        "$TEMP/Resources/Patcher" "$APP_DIR/Roblox.app/Contents/Resources/libOpiumwareNative.dylib" "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib" --strip-codesig --all-yes >/dev/null 2>&1
         mv "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib_patched" "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib"
 
         curl -fsSL "$UI_URL" -o "$TEMP/OpiumwareUI.zip"
@@ -148,7 +154,6 @@ main() {
         codesign --force --deep --sign - "$APP_DIR/Roblox.app" >/dev/null 2>&1
         rm -rf "$TEMP"
         rm -rf "$APP_DIR/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app" >/dev/null 2>&1
-        tccutil reset Accessibility com.Roblox.RobloxPlayer 
     ) & spinner "Finishing" $!
 
     echo
