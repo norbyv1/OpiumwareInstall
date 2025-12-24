@@ -118,9 +118,11 @@ main() {
     rm -rf ~/Opiumware/modules/latest.json ~/Opiumware/modules/luau-lsp ~/Opiumware/modules/Server
 
     section "Fetching client version"
-    json=$(curl -fsSL "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
-    version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | cut -d'"' -f4)
-    echo -e "${INFO} Latest version: ${BOLD}$version${NC}"
+    # json=$(curl -fsSL "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
+    # version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | cut -d'"' -f4)
+    local version="version-ae027c932bf54833"  
+    # echo -e "${INFO} Latest version: ${BOLD}$version${NC}"
+    echo -e "${INFO} Version: ${BOLD}$version${NC}"
 
     section "Downloading Roblox - ($version)"
     (
