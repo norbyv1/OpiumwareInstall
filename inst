@@ -151,7 +151,7 @@ main() {
         codesign --force --deep --sign - "$APP_DIR/Roblox.app" >/dev/null 2>&1
         rm -rf "$TEMP"
         rm -rf "$APP_DIR/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app" >/dev/null 2>&1
-        tccutil reset Accessibility com.Roblox.RobloxPlayer 
+        tccutil reset Accessibility com.Roblox.RobloxPlayer >/dev/null 2>&1
     ) & spinner "Finishing" $!
 
     echo
