@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Opiumware v2.0.3
+# Opiumware v2.0.5
 
 set -euo pipefail
 IFS=$'\n\t'
