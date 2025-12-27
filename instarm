@@ -161,7 +161,7 @@ main() {
 
     echo
     echo -e "${GREEN}${BOLD}Installation complete.${NC}"
-    echo -e "${WARN} A detection risk is present. Please use an alt account."
+    echo -e "${WARN} Please use an alt account."
 }
 
 main
