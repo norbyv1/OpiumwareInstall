@@ -120,7 +120,7 @@ main() {
     section "Fetching client version"
     # json=$(curl -fsSL "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
     # version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | cut -d'"' -f4)
-    local version="version-ae027c932bf54833"  
+    local version="version-cfe7460f53b444a5"  
     # echo -e "${INFO} Latest version: ${BOLD}$version${NC}"
     echo -e "${INFO} Version: ${BOLD}$version${NC}"
 
