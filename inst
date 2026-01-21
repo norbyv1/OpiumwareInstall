@@ -96,7 +96,7 @@ banner() {
 EOF
     echo -e "${NC}"
     echo -e "${BLUE}=[ Opiumware Installer ]=${NC}"
-    echo -e "${CYAN}Developed by @norbyv1 && @tufflodestone${NC}"
+    echo -e "${CYAN}Developed by @norbyv1 && @cflowv${NC}"
 }
 
 section() {
