@@ -18,7 +18,7 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rDTTb89YvR2QK1iVgakWyNDMPsXvcA9eG8xIH"
+DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3r8aTG84yCnPvxlokJ9sTBIGe1hQA8cqEaWU5f"
 MODULES_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rRLgqCJ6EwKLWJ0ADYbMyxP8H6QpokZ7F1aiu"
 UI_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rD2IKHTvR2QK1iVgakWyNDMPsXvcA9eG8xIHn"
 
@@ -147,6 +147,7 @@ main() {
         unzip -oq "$TEMP/OpiumwareUI.zip" -d "$TEMP"
 
         mkdir -p ~/Opiumware/workspace ~/Opiumware/autoexec ~/Opiumware/themes ~/Opiumware/modules ~/Opiumware/modules/Server ~/Opiumware/modules/luau-lsp
+        rm -f ~/Opiumware/modules/update.json 2>/dev/null
         mv -f "$TEMP/Resources/Server" ~/Opiumware/modules/Server/server
         mv -f "$TEMP/Resources/luau-lsp" ~/Opiumware/modules/luau-lsp/luau-lsp
         mv -f "$TEMP/Opiumware.app" "$APP_DIR/Opiumware.app"
