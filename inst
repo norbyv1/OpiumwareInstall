@@ -141,6 +141,7 @@ main() {
         unzip -oq "$TEMP/OpiumwareUI.zip" -d "$TEMP"
 
         mkdir -p ~/Opiumware/workspace ~/Opiumware/autoexec ~/Opiumware/themes ~/Opiumware/modules ~/Opiumware/modules/Server ~/Opiumware/modules/luau-lsp
+        rm -f ~/Opiumware/modules/update.json 2>/dev/null
         mv -f "$TEMP/Resources/Server" ~/Opiumware/modules/Server/server
         mv -f "$TEMP/Resources/luau-lsp" ~/Opiumware/modules/luau-lsp/luau-lsp
         mv -f "$TEMP/Opiumware.app" "$APP_DIR/Opiumware.app"
