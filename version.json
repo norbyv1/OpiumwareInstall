@@ -1,1 +1,1 @@
-{"CurrentVersion": "v2.1.0-hotfix", "SupportedRobloxVersion": "version-d695be9cd4a14e2c", "Changelog": "Fixed a vulnerability involving request and HttpGet\nFixed a loading crash", "RequiredUpd": false}
+{"CurrentVersion": "v2.1.0-hotfix", "SupportedRobloxVersion": "version-d695be9cd4a14e2c", "Changelog": "Fixed a vulnerability involving request and HttpGet\nFixed a loading crash\nIt is highly recommended that you install this update.", "RequiredUpd": false}
