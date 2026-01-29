@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Opiumware v2.1.0
+# Opiumware v2.1.1
 
 set -euo pipefail
 IFS=$'\n\t'
@@ -18,7 +18,7 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rDTRTyh9vR2QK1iVgakWyNDMPsXvcA9eG8xIH"
+DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rHs1mTyMQacT7wgY4BhNProkW9un08fDLVmOE"
 MODULES_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rRLgqCJ6EwKLWJ0ADYbMyxP8H6QpokZ7F1aiu"
 UI_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rD2IKHTvR2QK1iVgakWyNDMPsXvcA9eG8xIHn"
 
@@ -120,7 +120,7 @@ main() {
     section "Fetching client version"
     # json=$(curl -fsSL "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
     # version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | cut -d'"' -f4)
-    local version="version-d695be9cd4a14e2c"  
+    local version="version-31f9dff3cf034301"  
     # echo -e "${INFO} Latest version: ${BOLD}$version${NC}"
     echo -e "${INFO} Version: ${BOLD}$version${NC}"
 
