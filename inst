@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Opiumware v2.1.2
+# Opiumware v2.2.0
 
 set -euo pipefail
 IFS=$'\n\t'
@@ -18,9 +18,9 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rtqpyEY4iXmsI14v85ECV2NA93aGlBSjcZgn6"
-MODULES_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rRLgqCJ6EwKLWJ0ADYbMyxP8H6QpokZ7F1aiu"
-UI_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rD2IKHTvR2QK1iVgakWyNDMPsXvcA9eG8xIHn"
+DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9Z9udp3r9KA2lFIj1h4yn8VeHswxCJzmuqgtT"
+MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9sVKnsuNRLpwIiVkxYvTUQnAuFbGoSEH1tPMO"
+UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn90rVzXm9RvnwtPqsyrWQGdUaCf8TDJlbXuYZ3"
 
 if [ -w "/Applications" ]; then
     APP_DIR="/Applications"
@@ -95,7 +95,7 @@ banner() {
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
 EOF
     echo -e "${NC}"
-    echo -e "${BLUE}=[ Opiumware Installer ]=${NC}"
+    echo -e "${BLUE}=[ Opiumware (Intel) Installer ]=${NC}"
     echo -e "${CYAN}Developed by @norbyv1${NC}"
 }
 
@@ -109,13 +109,13 @@ main() {
 
     killall -9 RobloxPlayer Opiumware &>/dev/null || true
     rm -rf "$APP_DIR/Roblox.app" "$APP_DIR/Opiumware.app"
-    rm -rf ~/Opiumware/modules/latest.json ~/Opiumware/modules/luau-lsp ~/Opiumware/modules/Server
+    rm -rf ~/Opiumware/modules/update.json ~/Opiumware/modules/LuauLSP ~/Opiumware/modules/decompiler
 
     section "Fetching client version"
     # json=$(curl -fsSL "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
     # version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | cut -d'"' -f4)
-    local version="version-31f9dff3cf034301"  
     # echo -e "${INFO} Latest version: ${BOLD}$version${NC}"
+    local version="version-6298eb58de444612"  
     echo -e "${INFO} Version: ${BOLD}$version${NC}"
 
     section "Downloading Roblox - ($version)"
@@ -128,23 +128,25 @@ main() {
 
     section "Installing Opiumware modules"
     (
-        curl -fsSL "$DYLIB_URL" -o "$TEMP/libOpiumware.zip"
-        unzip -oq "$TEMP/libOpiumware.zip" -d "$TEMP"
-        mv "$TEMP/libOpiumware.dylib" "$APP_DIR/Roblox.app/Contents/Resources/libOpiumware.dylib"
+        curl -fsSL "$DYLIB_URL" -o "$TEMP/libOpiumwareNative.zip"
+        unzip -oq "$TEMP/libOpiumwareNative.zip" -d "$TEMP"
+        mv "$TEMP/libOpiumwareNative.dylib" "$APP_DIR/Roblox.app/Contents/Resources/libOpiumwareNative.dylib"
 
         curl -fsSL "$MODULES_URL" -o "$TEMP/modules.zip"
         unzip -oq "$TEMP/modules.zip" -d "$TEMP"
-        "$TEMP/Resources/Patcher" "$APP_DIR/Roblox.app/Contents/Resources/libOpiumware.dylib" "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib" --strip-codesig --all-yes >/dev/null 2>&1
+        "$TEMP/Resources/Injector" "$APP_DIR/Roblox.app/Contents/Resources/libOpiumwareNative.dylib" "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib" --strip-codesig --all-yes >/dev/null 2>&1
         mv "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib_patched" "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib"
 
         curl -fsSL "$UI_URL" -o "$TEMP/OpiumwareUI.zip"
         unzip -oq "$TEMP/OpiumwareUI.zip" -d "$TEMP"
 
-        mkdir -p ~/Opiumware/workspace ~/Opiumware/autoexec ~/Opiumware/themes ~/Opiumware/modules ~/Opiumware/modules/Server ~/Opiumware/modules/luau-lsp
+        mkdir -p ~/Opiumware/workspace ~/Opiumware/autoexec ~/Opiumware/themes ~/Opiumware/modules ~/Opiumware/modules/decompiler ~/Opiumware/modules/LuauLSP
         rm -f ~/Opiumware/modules/update.json 2>/dev/null
-        mv -f "$TEMP/Resources/Server" ~/Opiumware/modules/Server/server
-        mv -f "$TEMP/Resources/luau-lsp" ~/Opiumware/modules/luau-lsp/luau-lsp
+        mv -f "$TEMP/Resources/decompiler" ~/Opiumware/modules/decompiler/Decompiler
+        mv -f "$TEMP/Resources/LuauLSP" ~/Opiumware/modules/LuauLSP/LuauLSP
         mv -f "$TEMP/Opiumware.app" "$APP_DIR/Opiumware.app"
+        codesign --force --deep --sign - --identifier com.norbyv1.opiumware $APP_DIR/Opiumware.app >/dev/null 2>&1
+        tccutil reset ScreenCapture com.norbyv1.opiumware >/dev/null 2>&1
     ) & spinner "Installing" $!
 
     section "Finishing installation"
