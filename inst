@@ -18,7 +18,7 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9Z9udp3r9KA2lFIj1h4yn8VeHswxCJzmuqgtT"
+DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9G2VjmStRjcSmJKTnigZk1sBOFx5Xp9aIbe80"
 MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9sVKnsuNRLpwIiVkxYvTUQnAuFbGoSEH1tPMO"
 UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn90rVzXm9RvnwtPqsyrWQGdUaCf8TDJlbXuYZ3"
 
@@ -109,7 +109,7 @@ main() {
 
     killall -9 RobloxPlayer Opiumware &>/dev/null || true
     rm -rf "$APP_DIR/Roblox.app" "$APP_DIR/Opiumware.app"
-    rm -rf ~/Opiumware/modules >/dev/null 2>&1
+    rm -rf ~/Opiumware/modules/update.json ~/Opiumware/modules/LuauLSP ~/Opiumware/modules/decompiler
 
     section "Fetching client version"
     # json=$(curl -fsSL "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
@@ -120,7 +120,7 @@ main() {
 
     section "Downloading Roblox - ($version)"
     (
-        curl -fsSL "https://setup.rbxcdn.com/mac/$version-RobloxPlayer.zip" -o "$TEMP/RobloxPlayer.zip"
+        curl -fsSL "https://setup.rbxcdn.com/mac/arm64/$version-RobloxPlayer.zip" -o "$TEMP/RobloxPlayer.zip"
         unzip -oq "$TEMP/RobloxPlayer.zip" -d "$TEMP"
         mv "$TEMP/RobloxPlayer.app" "$APP_DIR/Roblox.app"
         xattr -cr "$APP_DIR/Roblox.app"
