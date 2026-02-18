@@ -120,7 +120,7 @@ main() {
 
     section "Downloading Roblox - ($version)"
     (
-        curl -fsSL "https://setup.rbxcdn.com/mac/arm64/$version-RobloxPlayer.zip" -o "$TEMP/RobloxPlayer.zip"
+        curl -fsSL "https://setup.rbxcdn.com/mac/$version-RobloxPlayer.zip" -o "$TEMP/RobloxPlayer.zip"
         unzip -oq "$TEMP/RobloxPlayer.zip" -d "$TEMP"
         mv "$TEMP/RobloxPlayer.app" "$APP_DIR/Roblox.app"
         xattr -cr "$APP_DIR/Roblox.app"
