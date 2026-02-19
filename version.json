@@ -1,1 +1,1 @@
-{"CurrentVersion": "v2.2.0-hotfix1", "SupportedRobloxVersion": "version-6298eb58de444612", "Changelog": "fixed game:GetObjects()\napple silicon ppl pls redownload from the channel", "RequiredUpd": false}
+{"CurrentVersion": "v2.2.0-hotfix2", "SupportedRobloxVersion": "version-6298eb58de444612", "Changelog": "Fixed intellisense autocomplete being annoying asf\nFixed new UI for 10.15\nFixed queue_on_teleport crash (voidware)\nUpdated installer", "RequiredUpd": false}
