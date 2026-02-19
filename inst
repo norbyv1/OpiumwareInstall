@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Opiumware v2.2.0
+# Opiumware v2.2.0-hotfix
 
 set -euo pipefail
 IFS=$'\n\t'
@@ -18,9 +18,9 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://vm8ehfavkn.ufs.sh/f/toFV4cHvXMPhvIxtnh2GOXow4vuRgysVDtfWmaMnIU7LCphE"
+DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn907ZDaL9RvnwtPqsyrWQGdUaCf8TDJlbXuYZ3"
 MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9sVKnsuNRLpwIiVkxYvTUQnAuFbGoSEH1tPMO"
-UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn90rVzXm9RvnwtPqsyrWQGdUaCf8TDJlbXuYZ3"
+UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9SqRVN7ZrzmeZJ1BNkhvFnjVlg3PaHqYESfiU"
 
 if [ -w "/Applications" ]; then
     APP_DIR="/Applications"
@@ -39,10 +39,10 @@ spinner() {
     local spin='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
     local i=0
 
-    while kill -0 "$pid" 2>/dev/null; do
-        printf "\r\033[K${CYAN}[${spin:i++%${#spin}:1}]${NC} %s" "$msg "
-        sleep 0.1
-    done
+    # while kill -0 "$pid" 2>/dev/null; do
+    #     printf "\r\033[K${CYAN}[${spin:i++%${#spin}:1}]${NC} %s" "$msg "
+    #     sleep 0.1
+    # done
 
     wait "$pid"
     printf "\r\033[K"
@@ -108,11 +108,29 @@ main() {
     banner
 
     killall -9 RobloxPlayer Opiumware &>/dev/null || true
-    rm -rf "$APP_DIR/Roblox.app" "$APP_DIR/Opiumware.app"
-    rm -rf ~/Opiumware/modules/update.json ~/Opiumware/modules/LuauLSP ~/Opiumware/modules/decompiler
+    for target in "$APP_DIR/Roblox.app" "$APP_DIR/Opiumware.app"; do
+        if [ -e "$target" ]; then
+            if rm -rf "$target" 2>/dev/null; then
+                :
+            else
+                if sudo -n true 2>/dev/null; then
+                    echo -e "${INFO} Please enter your password (required to delete Roblox):"
+                    sudo rm -rf "$target" 2>/dev/null || {
+                        echo -e "${RED}${CROSS} Failed to delete Roblox. Please manually delete it.${NC}"
+                    }
+                else
+                    echo -e "${RED}${CROSS} Failed to delete Roblox. Please manually delete it.${NC}"
+                    exit 1
+                fi
+            fi
+        fi
+    done
+
+    rm -rf ~/Opiumware/modules/LuauLSP ~/Opiumware/modules/decompiler
+    rm -f ~/Opiumware/modules/update.json 2>/dev/null
 
     section "Fetching client version"
-    # json=$(curl -fsSL "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
+    # json=$(curl -# -L "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
     # version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | cut -d'"' -f4)
     # echo -e "${INFO} Latest version: ${BOLD}$version${NC}"
     local version="version-6298eb58de444612"  
@@ -120,7 +138,7 @@ main() {
 
     section "Downloading Roblox - ($version)"
     (
-        curl -fsSL "https://setup.rbxcdn.com/mac/$version-RobloxPlayer.zip" -o "$TEMP/RobloxPlayer.zip"
+        curl -# -L "https://setup.rbxcdn.com/mac/$version-RobloxPlayer.zip" -o "$TEMP/RobloxPlayer.zip"
         unzip -oq "$TEMP/RobloxPlayer.zip" -d "$TEMP"
         mv "$TEMP/RobloxPlayer.app" "$APP_DIR/Roblox.app"
         xattr -cr "$APP_DIR/Roblox.app"
@@ -128,20 +146,19 @@ main() {
 
     section "Installing Opiumware modules"
     (
-        curl -fsSL "$DYLIB_URL" -o "$TEMP/libOpiumware.zip"
+        curl -# -L "$DYLIB_URL" -o "$TEMP/libOpiumware.zip"
         unzip -oq "$TEMP/libOpiumware.zip" -d "$TEMP"
         mv "$TEMP/libOpiumware.dylib" "$APP_DIR/Roblox.app/Contents/Resources/libOpiumware.dylib"
 
-        curl -fsSL "$MODULES_URL" -o "$TEMP/modules.zip"
+        curl -# -L "$MODULES_URL" -o "$TEMP/modules.zip"
         unzip -oq "$TEMP/modules.zip" -d "$TEMP"
         "$TEMP/Resources/Injector" "$APP_DIR/Roblox.app/Contents/Resources/libOpiumware.dylib" "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib" --strip-codesig --all-yes >/dev/null 2>&1
         mv "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib_patched" "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib"
 
-        curl -fsSL "$UI_URL" -o "$TEMP/OpiumwareUI.zip"
+        curl -# -L "$UI_URL" -o "$TEMP/OpiumwareUI.zip"
         unzip -oq "$TEMP/OpiumwareUI.zip" -d "$TEMP"
 
         mkdir -p ~/Opiumware/workspace ~/Opiumware/autoexec ~/Opiumware/themes ~/Opiumware/modules ~/Opiumware/modules/decompiler ~/Opiumware/modules/LuauLSP
-        rm -f ~/Opiumware/modules/update.json 2>/dev/null
         mv -f "$TEMP/Resources/decompiler" ~/Opiumware/modules/decompiler/Decompiler
         mv -f "$TEMP/Resources/LuauLSP" ~/Opiumware/modules/LuauLSP/LuauLSP
         mv -f "$TEMP/Opiumware.app" "$APP_DIR/Opiumware.app"
