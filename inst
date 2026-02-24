@@ -164,12 +164,12 @@ main() {
         mv -f "$TEMP/Opiumware.app" "$APP_DIR/Opiumware.app"
         codesign --force --deep --sign - --identifier com.norbyv1.opiumware $APP_DIR/Opiumware.app >/dev/null 2>&1
         tccutil reset ScreenCapture com.norbyv1.opiumware >/dev/null 2>&1
+        rm -rf "$TEMP"
     ) & spinner "Installing" $!
 
     section "Finishing installation"
     (
-        codesign --force --deep --sign - "$APP_DIR/Roblox.app" >/dev/null 2>&1
-        rm -rf "$TEMP"
+        codesign --force --deep --sign - --identifier com.Roblox.RobloxPlayer $APP_DIR/Roblox.app >/dev/null 2>&1
         rm -rf "$APP_DIR/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app" >/dev/null 2>&1
         tccutil reset Accessibility com.Roblox.RobloxPlayer >/dev/null 2>&1
     ) & spinner "Finishing" $!
