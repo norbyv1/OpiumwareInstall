@@ -154,7 +154,9 @@ main() {
         unzip -oq "$TEMP/modules.zip" -d "$TEMP"
         "$TEMP/Resources/Injector" "$APP_DIR/Roblox.app/Contents/Resources/libOpiumware.dylib" "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib" --strip-codesig --all-yes >/dev/null 2>&1
         mv "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib_patched" "$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib"
-
+        codesign --force --deep --sign - "$APP_DIR/Roblox.app"
+        rm -rf "$APP_DIR/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app" >/dev/null 2>&1
+        tccutil reset Accessibility com.Roblox.RobloxPlayer >/dev/null 2>&1
         curl -# -L "$UI_URL" -o "$TEMP/OpiumwareUI.zip"
         unzip -oq "$TEMP/OpiumwareUI.zip" -d "$TEMP"
 
@@ -166,13 +168,6 @@ main() {
         tccutil reset ScreenCapture com.norbyv1.opiumware >/dev/null 2>&1
         rm -rf "$TEMP"
     ) & spinner "Installing" $!
-
-    section "Finishing installation"
-    (
-        codesign --force --deep --sign - "$APP_DIR/Roblox.app"
-        rm -rf "$APP_DIR/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app" >/dev/null 2>&1
-        tccutil reset Accessibility com.Roblox.RobloxPlayer >/dev/null 2>&1
-    ) & spinner "Finishing" $!
 
     echo
     echo -e "${GREEN}${BOLD}Installation complete.${NC}"
