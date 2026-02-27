@@ -159,12 +159,11 @@ main() {
         tccutil reset Accessibility com.Roblox.RobloxPlayer >/dev/null 2>&1
         curl -# -L "$UI_URL" -o "$TEMP/OpiumwareUI.zip"
         unzip -oq "$TEMP/OpiumwareUI.zip" -d "$TEMP"
-
+        mv -f "$TEMP/Opiumware.app" "$APP_DIR/Opiumware.app"
+        codesign --force --deep --sign - "$APP_DIR/Opiumware.app"
         mkdir -p ~/Opiumware/workspace ~/Opiumware/autoexec ~/Opiumware/themes ~/Opiumware/modules ~/Opiumware/modules/decompiler ~/Opiumware/modules/LuauLSP
         mv -f "$TEMP/Resources/decompiler" ~/Opiumware/modules/decompiler/Decompiler
         mv -f "$TEMP/Resources/LuauLSP" ~/Opiumware/modules/LuauLSP/LuauLSP
-        mv -f "$TEMP/Opiumware.app" "$APP_DIR/Opiumware.app"
-        codesign --force --deep --sign - "$APP_DIR/Opiumware.app"
         tccutil reset ScreenCapture com.norbyv1.opiumware >/dev/null 2>&1
         rm -rf "$TEMP"
     ) & spinner "Installing" $!
