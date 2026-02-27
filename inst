@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Opiumware v2.2.0-hotfix
+# Opiumware v2.2.1
 
 set -euo pipefail
 IFS=$'\n\t'
@@ -18,7 +18,7 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn907ZDaL9RvnwtPqsyrWQGdUaCf8TDJlbXuYZ3"
+DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9zhUAHX71NMWOXBTIwjKh0pvSDLcxH6FERayu"
 MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9sVKnsuNRLpwIiVkxYvTUQnAuFbGoSEH1tPMO"
 UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9SqRVN7ZrzmeZJ1BNkhvFnjVlg3PaHqYESfiU"
 
@@ -133,7 +133,7 @@ main() {
     # json=$(curl -# -L "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
     # version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | cut -d'"' -f4)
     # echo -e "${INFO} Latest version: ${BOLD}$version${NC}"
-    local version="version-6298eb58de444612"  
+    local version="version-99769ee4146d4ccf"  
     echo -e "${INFO} Version: ${BOLD}$version${NC}"
 
     section "Downloading Roblox - ($version)"
@@ -162,14 +162,14 @@ main() {
         mv -f "$TEMP/Resources/decompiler" ~/Opiumware/modules/decompiler/Decompiler
         mv -f "$TEMP/Resources/LuauLSP" ~/Opiumware/modules/LuauLSP/LuauLSP
         mv -f "$TEMP/Opiumware.app" "$APP_DIR/Opiumware.app"
-        codesign --force --deep --sign - --identifier com.norbyv1.opiumware $APP_DIR/Opiumware.app >/dev/null 2>&1
+        codesign --force --deep --sign - "$APP_DIR/Opiumware.app"
         tccutil reset ScreenCapture com.norbyv1.opiumware >/dev/null 2>&1
         rm -rf "$TEMP"
     ) & spinner "Installing" $!
 
     section "Finishing installation"
     (
-        codesign --force --deep --sign - --identifier com.Roblox.RobloxPlayer $APP_DIR/Roblox.app >/dev/null 2>&1
+        codesign --force --deep --sign - "$APP_DIR/Roblox.app"
         rm -rf "$APP_DIR/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app" >/dev/null 2>&1
         tccutil reset Accessibility com.Roblox.RobloxPlayer >/dev/null 2>&1
     ) & spinner "Finishing" $!
