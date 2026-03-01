@@ -18,8 +18,8 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9zhUAHX71NMWOXBTIwjKh0pvSDLcxH6FERayu"
-MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9sVKnsuNRLpwIiVkxYvTUQnAuFbGoSEH1tPMO"
+DYLIB_URL="https://4kpb6zyvp2.ufs.sh/f/k0lH9HKBea5pMO9ZQatHclgfxeDvdSP760VIRLbU8KurXFw4"
+MODULES_URL="https://4kpb6zyvp2.ufs.sh/f/k0lH9HKBea5pgOJd3HfVbVJ7Wik94r1hu5mIygGeQwLBD0CE"
 UI_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rD2IKHTvR2QK1iVgakWyNDMPsXvcA9eG8xIHn"
 
 if [ -w "/Applications" ]; then
