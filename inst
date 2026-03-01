@@ -18,9 +18,9 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9zhUAHX71NMWOXBTIwjKh0pvSDLcxH6FERayu"
-MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9sVKnsuNRLpwIiVkxYvTUQnAuFbGoSEH1tPMO"
-UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9SqRVN7ZrzmeZJ1BNkhvFnjVlg3PaHqYESfiU"
+DYLIB_URL="https://4kpb6zyvp2.ufs.sh/f/k0lH9HKBea5pMO9ZQatHclgfxeDvdSP760VIRLbU8KurXFw4"
+MODULES_URL="https://4kpb6zyvp2.ufs.sh/f/k0lH9HKBea5pgOJd3HfVbVJ7Wik94r1hu5mIygGeQwLBD0CE"
+UI_URL="https://4kpb6zyvp2.ufs.sh/f/k0lH9HKBea5phbZL8Y9bt6cMeUB75RNzpOTsgFXor2lwaZQK"
 
 if [ -w "/Applications" ]; then
     APP_DIR="/Applications"
