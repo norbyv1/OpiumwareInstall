@@ -20,7 +20,12 @@ WARN="${YELLOW}⚠${NC}"
 
 DYLIB_URL="https://4kpb6zyvp2.ufs.sh/f/k0lH9HKBea5pMO9ZQatHclgfxeDvdSP760VIRLbU8KurXFw4"
 MODULES_URL="https://4kpb6zyvp2.ufs.sh/f/k0lH9HKBea5pgOJd3HfVbVJ7Wik94r1hu5mIygGeQwLBD0CE"
+VERSION="$(sw_vers -productVersion | awk -F. '{print $1}')"
 UI_URL="https://4kpb6zyvp2.ufs.sh/f/k0lH9HKBea5phbZL8Y9bt6cMeUB75RNzpOTsgFXor2lwaZQK"
+
+if [ "$VERSION" -lt 11 ]; then
+    UI_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rD2IKHTvR2QK1iVgakWyNDMPsXvcA9eG8xIHn"
+fi
 
 if [ -w "/Applications" ]; then
     APP_DIR="/Applications"
