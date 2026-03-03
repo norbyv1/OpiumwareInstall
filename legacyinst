@@ -126,7 +126,7 @@ main() {
         fi
     done
 
-    rm -rf ~/Opiumware/modules/LuauLSP ~/Opiumware/modules/decompiler
+    rm -rf ~/Opiumware/modules/luau-lsp ~/Opiumware/modules/Server
     rm -f ~/Opiumware/modules/update.json 2>/dev/null
 
     section "Fetching client version"
@@ -161,9 +161,9 @@ main() {
         unzip -oq "$TEMP/OpiumwareUI.zip" -d "$TEMP"
         mv -f "$TEMP/Opiumware.app" "$APP_DIR/Opiumware.app"
         codesign --force --deep --sign - "$APP_DIR/Opiumware.app"
-        mkdir -p ~/Opiumware/workspace ~/Opiumware/autoexec ~/Opiumware/themes ~/Opiumware/modules ~/Opiumware/modules/decompiler ~/Opiumware/modules/LuauLSP
-        mv -f "$TEMP/Resources/decompiler" ~/Opiumware/modules/decompiler/Decompiler
-        mv -f "$TEMP/Resources/LuauLSP" ~/Opiumware/modules/LuauLSP/LuauLSP
+        mkdir -p ~/Opiumware/workspace ~/Opiumware/autoexec ~/Opiumware/themes ~/Opiumware/modules ~/Opiumware/modules/Server ~/Opiumware/modules/luau-lsp
+        mv -f "$TEMP/Resources/Decompiler" ~/Opiumware/modules/Server/server
+        mv -f "$TEMP/Resources/LuauLSP" ~/Opiumware/modules/luau-lsp/luau-lsp
         tccutil reset ScreenCapture com.norbyv1.opiumware >/dev/null 2>&1
         rm -rf "$TEMP"
     ) & spinner "Installing" $!
