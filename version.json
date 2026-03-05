@@ -1,1 +1,1 @@
-{"CurrentVersion": "v2.2.2", "SupportedRobloxVersion": "version-f18963d432b94bd7", "Changelog": "- updated to version-f18963d432b94bd7\n- fixed a classname parsing issue causing getloadedmodules and getscripts to fail on intel\nhttps://r.sunc.su/g4DgUDaBhy", "RequiredUpd": false}
+{"CurrentVersion": "v2.2.20", "SupportedRobloxVersion": "version-f18963d432b94bd7", "Changelog": "- updated to version-f18963d432b94bd7\n- fixed a classname parsing issue causing getloadedmodules and getscripts to fail on intel\nhttps://r.sunc.su/g4DgUDaBhy", "RequiredUpd": false}
