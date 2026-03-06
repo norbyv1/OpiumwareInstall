@@ -1,0 +1,2 @@
+print("sacdasdca");
+error("hi");
