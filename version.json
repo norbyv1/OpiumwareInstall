@@ -1,1 +1,1 @@
-{"CurrentVersion": "v2.2.3", "SupportedRobloxVersion": "version-f18963d432b94bd7", "Changelog": "- Bug fixes\n- Added overridemalicious() per request of some sab players\n- run_on_actor now accept tables as arguments\n- rconsole print functions now accept multiple arguments", "RequiredUpd": false}
+{"CurrentVersion": "v2.2.4", "SupportedRobloxVersion": "version-f18963d432b94bd7", "Changelog": "0", "RequiredUpd": false}
