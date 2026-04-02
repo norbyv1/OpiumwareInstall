@@ -1,1 +1,1 @@
-{"CurrentVersion": "v2.2.67", "SupportedRobloxVersion": "version-f18963d432b94bd7", "Changelog": "- pushed the ui update\n- fixed loadstring crashing sometimes\n- fixed getscripts not returning client runcontext scripts\n- bug fixes", "RequiredUpd": true}
+{"CurrentVersion": "v2.2.67", "SupportedRobloxVersion": "version-f18963d432b94bd7", "Changelog": "- pushed the ui update\n- fixed loadstring crashing sometimes\n- fixed getscripts not returning client runcontext scripts\n- bug fixes", "RequiredUpd": false}
