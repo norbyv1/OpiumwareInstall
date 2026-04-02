@@ -21,7 +21,7 @@ WARN="${YELLOW}⚠${NC}"
 DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9zvSNZN71NMWOXBTIwjKh0pvSDLcxH6FERayu"
 MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9zb5N2U71NMWOXBTIwjKh0pvSDLcxH6FERayu"
 VERSION="$(sw_vers -productVersion | awk -F. '{print $1}')"
-UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9h7nKYSPkPjIfl7NkQ4cn8Vr1GivwqaYJgybt"
+UI_URL="https://q3p1xj20dh.ufs.sh/f/BrzckOVD7pCZXic4yblOrXx5SwcQKWkvE8P629ny4DmGCYVA"
 
 if [ "$VERSION" -lt 12 ]; then
     UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn973Un5SgiSg2Cb3OUYDHqn5ozMk0fmAtRrcsx"
