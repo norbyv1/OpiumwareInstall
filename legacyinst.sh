@@ -1,0 +1,165 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+BOLD='\033[1m'
+NC='\033[0m'
+
+CHECK="${GREEN}✔${NC}"
+CROSS="${RED}✖${NC}"
+INFO="${CYAN}➜${NC}"
+WARN="${YELLOW}⚠${NC}"
+
+DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9xU1UtsCvIpMwWQxsnHTt2V4BR3zyoFfE0AGj"
+MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9zb5N2U71NMWOXBTIwjKh0pvSDLcxH6FERayu"
+UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn973Un5SgiSg2Cb3OUYDHqn5ozMk0fmAtRrcsx"
+
+section() {
+    echo
+    echo -e "${BOLD}${CYAN}==> $1${NC}"
+}
+
+run_step() {
+    local msg="$1"
+    shift
+
+    echo -ne "${CYAN}[...]${NC} $msg\r"
+
+    if "$@"; then
+        printf "\r\033[K${GREEN}${CHECK} %s${NC}\n" "$msg"
+    else
+        printf "\r\033[K${RED}${CROSS} %s${NC}\n" "$msg"
+        exit 1
+    fi
+}
+
+banner() {
+    clear
+    echo -e "${BOLD}"
+    cat <<'EOF'
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%*=--::=*@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#+-:..........:+@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@#+-:..............-+@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@%#=-:...:-=+*#%%%#*-.:=*@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##*=-:.::=*#@@@@@@@@@@@@+-#@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#+-..:-+%@@@@@@@@@@@@@@@@#*@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%+=:.:=*%@@@@@@@@@@@@@@@@@@@+@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*+-.:=*%@@@@@=%@@@@@@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*+:.-##@@@@@@@@@@#=@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%*=::+#%@@@@@@@@@@@@@@*:#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%**==*#@@@@@@@@@@@@@@@@@@@*-:@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#=-*%@@@@@@@@@@@@@@@@@@@@@@%+-+=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@%#+=*%@@@@@@@@@@@@@@@@@@@@@@@@@++===**#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@%#*=+#@@@@@@@@@@@@@@@@@@@@@@@@@@@=::---=++###%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@##+-*%@@@@@@@@@@@@@@@@@@@%%%##*+=-=------=++===+***+*##%%%%%@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@**-+%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%#*+=-=+++******%%%@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@-+-+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#+=+**#*%@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@-=:+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%***#*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@#.:=*%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@-:-+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@*=----@@@@@%##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@%%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
+EOF
+    echo -e "${NC}"
+    echo -e "${BLUE}=[ Opiumware (Intel) Legacy Installer ]=${NC}"
+    echo -e "${CYAN}Developed by @norbyv1${NC}\n"
+}
+
+main() {
+    banner
+
+    if [ -w "/Applications" ]; then
+        APP_DIR="/Applications"
+        echo -e "${INFO} Installing to /Applications"
+    else
+        APP_DIR="$HOME/Applications"
+        mkdir -p "$APP_DIR"
+        echo -e "${WARN} Using $APP_DIR (no root access)"
+    fi
+
+    TEMP="$(mktemp -d)"
+
+    run_step "Killing Roblox Processes" bash -c "killall -9 RobloxPlayer Opiumware 2>/dev/null || true"
+
+    section "Cleaning old installs"
+    for target in "$APP_DIR/Roblox.app" "$APP_DIR/Opiumware.app"; do
+        if [ -e "$target" ]; then
+            run_step "Removing $(basename "$target")" rm -rf "$target"
+        fi
+    done
+
+    rm -rf ~/Opiumware/modules/LuauLSP ~/Opiumware/modules/decompiler
+    rm -f ~/Opiumware/modules/update.json 2>/dev/null || true
+
+    section "Fetching client version"
+    version="version-0b2afd6436e74a1f"
+    echo -e "${INFO} Version: ${BOLD}$version${NC}"
+
+    section "Downloading Roblox"
+
+    run_step "Downloading Roblox" bash -c "
+        curl -# -L 'https://setup.rbxcdn.com/mac/$version-RobloxPlayer.zip' -o '$TEMP/RobloxPlayer.zip' &&
+        unzip -oq '$TEMP/RobloxPlayer.zip' -d '$TEMP' &&
+        mv '$TEMP/RobloxPlayer.app' '$APP_DIR/Roblox.app' &&
+        xattr -cr '$APP_DIR/Roblox.app' &&
+        codesign --remove-signature '$APP_DIR/Roblox.app/Contents/MacOS/RobloxPlayer'
+    "
+
+    section "Installing Opiumware"
+
+    run_step "Installing modules" bash -c "
+        curl -# -L '$DYLIB_URL' -o '$TEMP/lib.zip' &&
+        unzip -oq '$TEMP/lib.zip' -d '$TEMP' &&
+        mv '$TEMP/libOpiumware.dylib' '$APP_DIR/Roblox.app/Contents/Resources/libOpiumware.dylib' &&
+
+        curl -# -L '$MODULES_URL' -o '$TEMP/modules.zip' &&
+        unzip -oq '$TEMP/modules.zip' -d '$TEMP' &&
+
+        '$TEMP/Resources/Injector' \
+            '$APP_DIR/Roblox.app/Contents/Resources/libOpiumware.dylib' \
+            '$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib' \
+            --strip-codesig --all-yes >/dev/null 2>&1 &&
+
+        mv '$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib_patched' \
+           '$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib' &&
+
+        codesign --force --deep --sign - '$APP_DIR/Roblox.app' &&
+
+        curl -# -L '$UI_URL' -o '$TEMP/ui.zip' &&
+        unzip -oq '$TEMP/ui.zip' -d '$TEMP' &&
+        mv -f '$TEMP/Opiumware.app' '$APP_DIR/Opiumware.app' &&
+
+        codesign --force --deep --sign - '$APP_DIR/Opiumware.app' &&
+
+        mkdir -p ~/Opiumware/{workspace,autoexec,themes,modules} &&
+        mkdir -p ~/Opiumware/modules/{Server,luau-lsp} &&
+
+        mv -f '$TEMP/Resources/Decompiler' ~/Opiumware/modules/Server/server &&
+        mv -f '$TEMP/Resources/LuauLSP' ~/Opiumware/modules/luau-lsp/luau-lsp &&
+        rm -rf '$APP_DIR/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app' &&
+        rm -rf '$TEMP'
+    "
+
+    echo
+    echo -e "${GREEN}${BOLD}Installation complete.${NC}"
+
+    open "$APP_DIR/Roblox.app"
+    open "$APP_DIR/Opiumware.app"
+}
+
+main
