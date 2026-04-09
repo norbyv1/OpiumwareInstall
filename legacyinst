@@ -16,7 +16,7 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9xU1UtsCvIpMwWQxsnHTt2V4BR3zyoFfE0AGj"
+DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9XAxLsaTNtgWaiOBJXYsTUb2xuCSvQ8H3MLwG"
 MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9zb5N2U71NMWOXBTIwjKh0pvSDLcxH6FERayu"
 UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn973Un5SgiSg2Cb3OUYDHqn5ozMk0fmAtRrcsx"
 
@@ -137,7 +137,7 @@ main() {
 
         mv '$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib_patched' \
            '$APP_DIR/Roblox.app/Contents/MacOS/libmimalloc.3.dylib' &&
-
+        rm -rf '$APP_DIR/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app' &&
         codesign --force --deep --sign - '$APP_DIR/Roblox.app' &&
 
         curl -# -L '$UI_URL' -o '$TEMP/ui.zip' &&
@@ -151,7 +151,6 @@ main() {
 
         mv -f '$TEMP/Resources/Decompiler' ~/Opiumware/modules/Server/server &&
         mv -f '$TEMP/Resources/LuauLSP' ~/Opiumware/modules/luau-lsp/luau-lsp &&
-        rm -rf '$APP_DIR/Roblox.app/Contents/MacOS/RobloxPlayerInstaller.app' &&
         rm -rf '$TEMP'
     "
 
