@@ -1,1 +1,1 @@
-{"CurrentVersion": "v2.2.67890", "SupportedRobloxVersion": "version-f18963d432b94bd7", "Changelog": "- fixed getactors\n- added new function getsignalwhitelist()\n- bug fixes\n- websocket revamp", "RequiredUpd": false}
+{"CurrentVersion": "v2.3.0", "SupportedRobloxVersion": "version-08d2b9589bf14135", "Changelog": "- bug fixes\n- updated to version-08d2b9589bf14135\n\nI lowkey forgot about ts (this)", "RequiredUpd": false}
