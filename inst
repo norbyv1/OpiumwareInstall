@@ -16,7 +16,7 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9XAxLsaTNtgWaiOBJXYsTUb2xuCSvQ8H3MLwG"
+DYLIB_URL="https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rTwrPrqc9Ksmzt5wZYbSadLUJuRjyBA1Ornxf"
 MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9zb5N2U71NMWOXBTIwjKh0pvSDLcxH6FERayu"
 UI_URL="https://q3p1xj20dh.ufs.sh/f/BrzckOVD7pCZXic4yblOrXx5SwcQKWkvE8P629ny4DmGCYVA"
 
@@ -153,10 +153,8 @@ main() {
 
         mkdir -p ~/Opiumware/{workspace,autoexec,themes,modules} &&
         mkdir -p ~/Opiumware/modules/{decompiler,LuauLSP} &&
-
         mv -f '$TEMP/Resources/Decompiler' ~/Opiumware/modules/decompiler/Decompiler &&
-        mv -f '$TEMP/Resources/LuauLSP' ~/Opiumware/modules/LuauLSP/LuauLSP &&
-        rm -rf '$TEMP'
+        mv -f '$TEMP/Resources/LuauLSP' ~/Opiumware/modules/LuauLSP/LuauLSP
     "
 
     echo
@@ -164,6 +162,7 @@ main() {
 
     open "$APP_DIR/Roblox.app"
     open "$APP_DIR/Opiumware.app"
+    rm -rf '$TEMP'
 }
 
 main
