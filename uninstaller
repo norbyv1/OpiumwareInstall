@@ -1,20 +1,146 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+BOLD='\033[1m'
+NC='\033[0m'
+
+CHECK="${GREEN}✔${NC}"
+CROSS="${RED}✖${NC}"
+INFO="${CYAN}➜${NC}"
+WARN="${YELLOW}⚠${NC}"
+
+ARCH=$(uname -m)
+
+section() {
+    echo
+    echo -e "${BOLD}${CYAN}==> $1${NC}"
+}
+
+run_step() {
+    local msg="$1"
+    shift
+
+    echo -ne "${CYAN}[...]${NC} $msg\r"
+
+    if "$@"; then
+        printf "\r\033[K${GREEN}${CHECK} %s${NC}\n" "$msg"
+    else
+        printf "\r\033[K${RED}${CROSS} %s${NC}\n" "$msg"
+        exit 1
+    fi
+}
+
+banner() {
+    clear
+    echo -e "${BOLD}"
+    cat <<'EOF'
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%*=--::=*@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#+-:..........:+@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@#+-:..............-+@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@%#=-:...:-=+*#%%%#*-.:=*@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##*=-:.::=*#@@@@@@@@@@@@+-#@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#+-..:-+%@@@@@@@@@@@@@@@@#*@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%+=:.:=*%@@@@@@@@@@@@@@@@@@@+@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*+-.:=*%@@@@@=%@@@@@@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*+:.-##@@@@@@@@@@#=@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%*=::+#%@@@@@@@@@@@@@@*:#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%**==*#@@@@@@@@@@@@@@@@@@@*-:@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#=-*%@@@@@@@@@@@@@@@@@@@@@@%+-+=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@%#+=*%@@@@@@@@@@@@@@@@@@@@@@@@@++===**#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@%#*=+#@@@@@@@@@@@@@@@@@@@@@@@@@@@=::---=++###%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@##+-*%@@@@@@@@@@@@@@@@@@@%%%##*+=-=------=++===+***+*##%%%%%@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@**-+%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%#*+=-=+++******%%%@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@-+-+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#+=+**#*%@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@-=:+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%***#*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@#.:=*%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@-:-+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@*=----@@@@@%##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@%%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
+EOF
+    echo -e "${NC}"
+    echo -e "${BLUE}=[ Opiumware Uninstaller ]=${NC}"
+    echo -e "${CYAN}Developed by @norbyv2${NC}\n"
+}
 
 main() {
-    clear
+    banner
+
+    echo -e "${YELLOW}[!] Are you sure you want to uninstall Opiumware? This will remove all your saved scripts and data. (Y/N)${NC}"
+    read -r confirm
+
+    case "$confirm" in
+        y|Y|yes|YES)
+            echo
+            ;;
+        *)
+            echo -e "${RED}Cancelled.${NC}"
+            exit 0
+            ;;
+    esac
 
     if [ -w "/Applications" ]; then
-        rm -rf ~/Library/Application Support/Roblox
-        rm -rf ~/Library/Caches/com.roblox.RobloxPlayer
-        rm -rf ~/Library/Logs/Roblox 
-        curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rQ47Or6b0DfXGI1bpTyQt85z06u3nRhVdUZjs" | bash
+        APP_DIR="/Applications"
     else
-        rm -rf "$HOME/Library/Application Support/Roblox"
-        rm -rf "$HOME/Library/Caches/com.roblox.RobloxPlayer"
-        rm -rf "$HOME/Library/Logs/Roblox"
-        echo -e "${YELLOW}[!] Local user detected, using home directory instead of global directory ${NC}"
-        curl -s "https://f3a5dqxez3.ufs.sh/f/ijk9xZzvhn3rMUmHSFvYJNpYZt47cEmqUko8LizI9ylaHKOb" | bash
+        APP_DIR="$HOME/Applications"
+        mkdir -p "$APP_DIR"
     fi
+
+    TEMP="$(mktemp -d)"
+
+    run_step "Killing Roblox Processes" bash -c "killall -9 RobloxPlayer Opiumware 2>/dev/null || true"
+
+    section "Uninstall"
+    for target in "$APP_DIR/Roblox.app" "$APP_DIR/Opiumware.app"; do
+        if [ -e "$target" ]; then
+            run_step "Removing $(basename "$target")" rm -rf "$target"
+        fi
+    done
+
+    run_step "Uninstalling" bash -c "
+        rm -rf ~/Opiumware &&
+        rm -rf ~/Library/Application Support/Roblox &&
+        rm -rf ~/Library/Caches/com.roblox.RobloxPlayer &&
+        rm -rf ~/Library/Logs/Roblox
+    "
+
+    section "Fetching client version"
+    json=$(curl -s "https://clientsettingscdn.roblox.com/v2/client-version/MacPlayer")
+    local version=$(echo "$json" | grep -o '"clientVersionUpload":"[^"]*' | grep -o '[^"]*$')
+    echo -e "${INFO} Version: ${BOLD}$version${NC}"
+
+    section "Downloading Roblox"
+
+    run_step "Downloading Roblox" bash -c "
+        if [[ "$ARCH" != "arm64" ]]; then
+            curl -# -L 'https://setup.rbxcdn.com/mac/$version-RobloxPlayer.zip' -o '$TEMP/RobloxPlayer.zip'
+        else
+            curl -# -L 'https://setup.rbxcdn.com/mac/arm64/$version-RobloxPlayer.zip' -o '$TEMP/RobloxPlayer.zip'
+        fi
+
+        unzip -oq '$TEMP/RobloxPlayer.zip' -d '$TEMP' &&
+        mv '$TEMP/RobloxPlayer.app' '$APP_DIR/Roblox.app' &&
+        xattr -cr '$APP_DIR/Roblox.app'
+    "
+    echo
+    echo -e "${GREEN}${BOLD}Uninstall complete.${NC}"
+
+    rm -rf '$TEMP'
 }
 
 main
