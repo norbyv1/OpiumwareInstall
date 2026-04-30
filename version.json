@@ -1,1 +1,1 @@
-{"CurrentVersion": "v2.3.2", "SupportedRobloxVersion": "version-1d604bb8b63849b4", "Changelog": "- fixed setfpscap\n- added setstackhidden\n- Fixed UE ragebot\n- Various UI additions and improvements\n- Updated to version-1d604bb8b63849b4", "RequiredUpd": false}
+{"CurrentVersion": "v2.3.2", "SupportedRobloxVersion": "version-1d604bb8b63849b4", "Changelog": "- Fixed UI not launching", "RequiredUpd": false}
