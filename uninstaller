@@ -81,18 +81,7 @@ EOF
 main() {
     banner
 
-    echo -e "${YELLOW}[!] Are you sure you want to uninstall Opiumware? This will remove all your saved scripts and data. (Y/N)${NC}"
-    read -r confirm
 
-    case "$confirm" in
-        y|Y|yes|YES)
-            echo
-            ;;
-        *)
-            echo -e "${RED}Cancelled.${NC}"
-            exit 0
-            ;;
-    esac
 
     if [ -w "/Applications" ]; then
         APP_DIR="/Applications"
