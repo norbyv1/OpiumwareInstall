@@ -16,8 +16,8 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9BKGq3HnglJe78YuBWPFLwdojfGvR9cI64xkm"
-MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9TL8xp2unI8k92VmFY0fHB1oRQPUjZhwLsxuJ"
+DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9suoxx7NRLpwIiVkxYvTUQnAuFbGoSEH1tPMO"
+MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9xXaWrFvIpMwWQxsnHTt2V4BR3zyoFfE0AGjZ"
 UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn973Un5SgiSg2Cb3OUYDHqn5ozMk0fmAtRrcsx"
 
 section() {
@@ -107,7 +107,7 @@ main() {
     rm -f ~/Opiumware/modules/update.json 2>/dev/null || true
 
     section "Fetching client version"
-    version="version-4a858a3a05c64f79"
+    version="version-9e55b34566734c3b"
     echo -e "${INFO} Version: ${BOLD}$version${NC}"
 
     section "Downloading Roblox"
