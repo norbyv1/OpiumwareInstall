@@ -96,11 +96,24 @@ main() {
 
     run_step "Killing Roblox Processes" bash -c "killall -9 RobloxPlayer Opiumware 2>/dev/null || true"
 
-    section "Cleaning old installs"
+    section "Removing old installs"
     for target in "$APP_DIR/Roblox.app" "$APP_DIR/Opiumware.app"; do
+        [ -e "$target" ] || continue
+        name="$(basename "$target")"
+
+        rm -rf "$target" 2>/dev/null || true
+
         if [ -e "$target" ]; then
-            run_step "Removing $(basename "$target")" rm -rf "$target"
+            echo -e "${WARN} Could not normally remove $name with sudo..."
+            sudo rm -rf "$target" 2>/dev/null || true
         fi
+
+        if [ -e "$target" ]; then
+            echo -e "${RED}${CROSS} Failed to remove $name, please manually delete it.${NC}"
+            exit 1
+        fi
+
+        echo -e "${GREEN}${CHECK} Removed $name${NC}"
     done
 
     rm -rf ~/Opiumware/modules/LuauLSP ~/Opiumware/modules/decompiler
