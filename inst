@@ -16,7 +16,7 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9suoxx7NRLpwIiVkxYvTUQnAuFbGoSEH1tPMO"
+DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9pWARRJV0u7oeIb2tZ41nEclVQgsf5NiJFm9O"
 MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9xXaWrFvIpMwWQxsnHTt2V4BR3zyoFfE0AGjZ"
 UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9T4nznlunI8k92VmFY0fHB1oRQPUjZhwLsxuJ"
 
@@ -109,7 +109,7 @@ main() {
         rm -rf "$target" 2>/dev/null || true
 
         if [ -e "$target" ]; then
-            echo -e "${WARN} Could not normally remove $name with sudo..."
+            echo -e "${WARN} Could not remove $name with sudo..."
             sudo rm -rf "$target" 2>/dev/null || true
         fi
 
@@ -124,7 +124,7 @@ main() {
     rm -f ~/Opiumware/modules/update.json 2>/dev/null || true
 
     section "Fetching client version"
-    version="version-9e55b34566734c3b"
+    version="version-73d88b9483b340ae"
     echo -e "${INFO} Version: ${BOLD}$version${NC}"
 
     section "Downloading Roblox"
