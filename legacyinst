@@ -16,7 +16,7 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9inBOtkcabZwqcmFreylWSQPskdDOY876AjN2"
+DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9NRpP11bFwX01zYylMcsLEi5txTuZvJNmr2bH"
 MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9xXaWrFvIpMwWQxsnHTt2V4BR3zyoFfE0AGjZ"
 UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn973Un5SgiSg2Cb3OUYDHqn5ozMk0fmAtRrcsx"
 
