@@ -142,7 +142,7 @@ main() {
     echo
     echo -e "${GREEN}${BOLD}Uninstall complete.${NC}"
 
-    rm -rf '$TEMP'
+    rm -rf "$TEMP"
 }
 
 main
