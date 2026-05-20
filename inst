@@ -174,7 +174,7 @@ main() {
 
     open "$APP_DIR/Roblox.app"
     open "$APP_DIR/Opiumware.app"
-    rm -rf '$TEMP'
+    rm -rf "$TEMP"
 }
 
 main
