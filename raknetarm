@@ -126,7 +126,7 @@ main() {
     rm -f ~/Opiumware/modules/update.json 2>/dev/null || true
 
     section "Fetching client version"
-    version="version-2f00787ab023453e"
+    version="version-789d64d8ac264b79"
     echo -e "${INFO} Version: ${BOLD}$version${NC}"
 
     section "Downloading Roblox"
