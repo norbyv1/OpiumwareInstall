@@ -22,7 +22,7 @@ if [[ "$ARCH" != "arm64" ]]; then
     exit 0
 fi
 
-DYLIB_URL="https://x1ky6xlvku.ufs.sh/f/s4W9gaKSjVy0tt2FeaSZQw8pGYkDUf6hMWRvbo3stu9FVNBl"
+DYLIB_URL="https://x1ky6xlvku.ufs.sh/f/s4W9gaKSjVy0yv4RLLDUJMI82gsKLfuBamPOeFhxATz09kZv"
 MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9xXaWrFvIpMwWQxsnHTt2V4BR3zyoFfE0AGjZ"
 UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9T4nznlunI8k92VmFY0fHB1oRQPUjZhwLsxuJ"
 
