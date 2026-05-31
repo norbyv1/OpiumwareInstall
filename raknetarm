@@ -18,11 +18,11 @@ WARN="${YELLOW}⚠${NC}"
 
 ARCH=$(uname -m)
 if [[ "$ARCH" != "arm64" ]]; then
-    echo -e "${INFO} Your system does not use Apple Silicon (ARM64). Please use the standard installer for Intel-based Macs."
+    echo -e "${INFO} Your system does not use Apple Silicon (arm64). Please use the standard installer for Intel-based Macs."
     exit 0
 fi
 
-DYLIB_URL="https://x1ky6xlvku.ufs.sh/f/s4W9gaKSjVy0yv4RLLDUJMI82gsKLfuBamPOeFhxATz09kZv"
+DYLIB_URL="https://x1ky6xlvku.ufs.sh/f/s4W9gaKSjVy0ZQOrjikQPV7gdDaf9Iui3p5FRA1HobzcECyJ"
 MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9xXaWrFvIpMwWQxsnHTt2V4BR3zyoFfE0AGjZ"
 UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9T4nznlunI8k92VmFY0fHB1oRQPUjZhwLsxuJ"
 
