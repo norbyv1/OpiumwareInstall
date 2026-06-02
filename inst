@@ -16,14 +16,9 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9hhE66qkPjIfl7NkQ4cn8Vr1GivwqaYJgybtZ"
-MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9xXaWrFvIpMwWQxsnHTt2V4BR3zyoFfE0AGjZ"
-UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9T4nznlunI8k92VmFY0fHB1oRQPUjZhwLsxuJ"
-
-VERSION="$(sw_vers -productVersion | awk -F. '{print $1}')"
-if [ "$VERSION" -lt 11 ]; then
-    UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn973Un5SgiSg2Cb3OUYDHqn5ozMk0fmAtRrcsx"
-fi
+DYLIB_URL="https://2ihmdb56pm.ufs.sh/f/WTDaMpjqfHMYj8Qcj4CmOQUAKVtnZY69l2rkxRo8zi5HShqj"
+MODULES_URL="https://2ihmdb56pm.ufs.sh/f/WTDaMpjqfHMYajjw6y98FHm9SWoBKltDhNf21rbckGsg5p6i"
+UI_URL="https://2ihmdb56pm.ufs.sh/f/WTDaMpjqfHMYpWCxBgeBd0ELlvU1TejXtDaQb4wxsPmRIru2"
 
 section() {
     echo
