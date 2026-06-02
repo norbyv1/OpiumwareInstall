@@ -18,7 +18,7 @@ WARN="${YELLOW}⚠${NC}"
 
 DYLIB_URL="https://x1ky6xlvku.ufs.sh/f/s4W9gaKSjVy0rZTK2CLtA2iXzKUw17fgH56lYO0Fqvu9Rhex"
 MODULES_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9xXaWrFvIpMwWQxsnHTt2V4BR3zyoFfE0AGjZ"
-UI_URL="https://x099xkycxe.ufs.sh/f/ar75CUBjeUn9T4nznlunI8k92VmFY0fHB1oRQPUjZhwLsxuJ"
+UI_URL="https://2ihmdb56pm.ufs.sh/f/WTDaMpjqfHMYpWCxBgeBd0ELlvU1TejXtDaQb4wxsPmRIru2"
 
 section() {
     echo
