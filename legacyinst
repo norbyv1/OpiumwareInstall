@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-main() {
-    echo -e "Use the main installer. This is now deprecated."
-}
-
-main
