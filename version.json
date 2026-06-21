@@ -1,1 +1,1 @@
-{"CurrentVersion": "v2.4.2", "SupportedRobloxVersion": "version-d9748b94acff4b5d", "Changelog": "- updated to version-d9748b94acff4b5d\n- ports are now 8390-8420 \n- more stability fixes\n- fixed decompiler spitting out UNNAMED_x & function names are now part of the actual function instead of being a comment\n- added error redirection (enable in ui settings)", "RequiredUpd": false}
+{"CurrentVersion": "v2.4.2", "SupportedRobloxVersion": "version-d9748b94acff4b5d", "Changelog": "fix gc corruption crash", "RequiredUpd": false}
