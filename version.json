@@ -1,1 +1,1 @@
-{"CurrentVersion": "v2.4.2", "SupportedRobloxVersion": "version-d9748b94acff4b5d", "Changelog": "fix gc corruption crash", "RequiredUpd": false}
+{"CurrentVersion": "v2.4.2", "SupportedRobloxVersion": "version-d9748b94acff4b5d", "Changelog": "- cloneref fix\n- fix crash on join", "RequiredUpd": false}
