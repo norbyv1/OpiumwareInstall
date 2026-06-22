@@ -1,1 +1,1 @@
-{"CurrentVersion": "v2.4.2", "SupportedRobloxVersion": "version-d9748b94acff4b5d", "Changelog": "- cloneref fix\n- fix crash on join", "RequiredUpd": false}
+{"CurrentVersion": "v2.4.2", "SupportedRobloxVersion": "version-d9748b94acff4b5d", "Changelog": "- sync to arm changes\n- ue, kicia, other scripts are fixed\n- other bug fixes and stuff\n- it is recommended to install this update", "RequiredUpd": false}
