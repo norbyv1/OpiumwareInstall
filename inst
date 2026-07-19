@@ -94,7 +94,7 @@ main() {
 
     TEMP="$(mktemp -d)"
 
-    run_step "Killing Roblox Processes" bash -c "killall -9 RobloxPlayer Opiumware 2>/dev/null || true"
+    run_step "Killing open processes" bash -c 'kill -9 $(lsof -ti :9002) 2>/dev/null || true; killall -9 RobloxPlayer Opiumware 2>/dev/null || true'
 
     section "Removing old installs"
     for target in "$APP_DIR/Roblox.app" "$APP_DIR/Opiumware.app"; do
