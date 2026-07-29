@@ -16,8 +16,8 @@ CROSS="${RED}✖${NC}"
 INFO="${CYAN}➜${NC}"
 WARN="${YELLOW}⚠${NC}"
 
-DYLIB_URL="https://anc4cpypjs.ufs.sh/f/fuloy9zwEAJtmcR6vdZQAOT0Zl41cYh5jKt8Ew3FadLxVfUo"
-MODULES_URL="https://anc4cpypjs.ufs.sh/f/fuloy9zwEAJtz1PXw4tYbocdF4qNrlAp6xXEj72n3Ji91M0W"
+DYLIB_URL="https://anc4cpypjs.ufs.sh/f/fuloy9zwEAJtNuvLo1RAgUroC4ViWeujDlmfJMa0ZLP2pdvk"
+MODULES_URL="https://anc4cpypjs.ufs.sh/f/fuloy9zwEAJtvEeyig4ncYl7dhxBGyMKF3U4o50piQgtJDnX"
 UI_URL="https://anc4cpypjs.ufs.sh/f/fuloy9zwEAJtvE7eVgbncYl7dhxBGyMKF3U4o50piQgtJDnX"
 
 section() {
@@ -119,7 +119,7 @@ main() {
     rm -f ~/Opiumware/modules/update.json 2>/dev/null || true
 
     section "Fetching client version"
-    version="version-56940828b8454204"
+    version="version-614a8fd6f9294c9b"
     echo -e "${INFO} Version: ${BOLD}$version${NC}"
 
     section "Downloading Roblox"
@@ -158,7 +158,6 @@ main() {
 
         codesign --force --deep --sign - '$APP_DIR/Opiumware.app' &&
 
-        mkdir -p "$APP_DIR/Roblox.app/Contents/Resources/content/Opiumware" &&
         mkdir -p ~/Opiumware/{workspace,autoexec,themes,modules} &&
         mkdir -p ~/Opiumware/modules/{decompiler,LuauLSP} &&
         mv -f '$TEMP/Resources/Decompiler' ~/Opiumware/modules/decompiler/Decompiler &&
