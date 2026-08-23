@@ -158,7 +158,7 @@ main() {
 
         codesign --force --deep --sign - '$APP_DIR/Opiumware.app' &&
 
-        mkdir -p ~/Opiumware/{workspace,autoexec,themes,modules} &&
+        mkdir -p ~/Opiumware/{workspace,autoexec,modules} &&
         mkdir -p ~/Opiumware/modules/{decompiler,LuauLSP} &&
         mv -f '$TEMP/Resources/Decompiler' ~/Opiumware/modules/decompiler/Decompiler &&
         mv -f '$TEMP/Resources/LuauLSP' ~/Opiumware/modules/LuauLSP/LuauLSP
